@@ -4,9 +4,10 @@ import json
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(title="ANPEGT-POL API", version="0.1.0")
 
@@ -17,6 +18,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve dashboard static files if the build exists
+DASHBOARD_DIST = Path(__file__).resolve().parent.parent.parent / "dashboard" / "dist"
 
 ARTIFACTS_DIR = Path("artifacts/runs")
 
@@ -147,3 +151,16 @@ def get_overview():
         "latest": cycles[-1] if cycles else None,
         "total_cycles": len(cycles),
     }
+
+
+# --- Static dashboard serving (must be AFTER all /api routes) ---
+if DASHBOARD_DIST.exists():
+    app.mount("/assets", StaticFiles(directory=DASHBOARD_DIST / "assets"), name="static")
+
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        """Serve the React SPA for any non-API route."""
+        file_path = DASHBOARD_DIST / full_path
+        if full_path and file_path.exists() and file_path.is_file():
+            return FileResponse(file_path)
+        return FileResponse(DASHBOARD_DIST / "index.html")
