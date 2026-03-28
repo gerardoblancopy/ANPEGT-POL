@@ -44,8 +44,10 @@ def init(ctx: click.Context) -> None:
 @main.command()
 @click.option("--cycles", default=1, help="Number of cycles to run")
 @click.option("--llm", default=None, help="LLM provider override (mock/openai/anthropic)")
+@click.option("--api-key", default=None, help="API key for the LLM provider")
+@click.option("--model", default=None, help="Model name override (e.g. gpt-4o, gpt-4o-mini)")
 @click.pass_context
-def run(ctx: click.Context, cycles: int, llm: str | None) -> None:
+def run(ctx: click.Context, cycles: int, llm: str | None, api_key: str | None, model: str | None) -> None:
     """Run N planning cycles."""
     from anpegt.runner import CycleRunner
 
@@ -53,6 +55,10 @@ def run(ctx: click.Context, cycles: int, llm: str | None) -> None:
     cfg = load_config(config_dir)
     if llm:
         cfg.llm.default_provider = llm
+    if api_key:
+        cfg.llm.api_key = api_key
+    if model:
+        cfg.llm.model = model
 
     runner = CycleRunner(cfg)
     results = runner.run(num_cycles=cycles)

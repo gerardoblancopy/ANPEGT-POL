@@ -106,6 +106,8 @@ class LLMConfig(BaseModel):
     default_provider: str = Field(default="mock")
     temperature: float = Field(default=0.7)
     max_retries: int = Field(default=2)
+    api_key: str = Field(default="")
+    model: str = Field(default="")
 
 
 class SystemConfig(BaseModel):

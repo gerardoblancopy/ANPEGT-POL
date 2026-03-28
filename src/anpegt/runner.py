@@ -56,7 +56,12 @@ def _get_llm_provider(config: SystemConfig):
         return MockLLMProvider()
     elif provider_name == "openai":
         from anpegt.llm.openai_provider import OpenAIProvider
-        return OpenAIProvider(temperature=config.llm.temperature)
+        model = config.llm.model or "gpt-4o"
+        return OpenAIProvider(
+            model=model,
+            api_key=config.llm.api_key or None,
+            temperature=config.llm.temperature,
+        )
     elif provider_name == "anthropic":
         from anpegt.llm.anthropic_provider import AnthropicProvider
         return AnthropicProvider(temperature=config.llm.temperature)

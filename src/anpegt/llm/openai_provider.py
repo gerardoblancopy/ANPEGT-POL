@@ -16,10 +16,12 @@ class OpenAIProvider:
         model: str = "gpt-4o",
         api_key: Optional[str] = None,
         base_url: Optional[str] = None,
+        temperature: float = 0.7,
     ):
         self.model = model
         self._api_key = api_key
         self._base_url = base_url
+        self._default_temperature = temperature
         self._client: Optional[object] = None
 
     # ------------------------------------------------------------------

@@ -153,6 +153,32 @@ def get_overview():
     }
 
 
+@app.post("/api/run")
+def run_cycles(
+    cycles: int = 1,
+    llm: str = "mock",
+    api_key: str = "",
+    model: str = "",
+):
+    """Run planning cycles via API. Accepts llm provider, api_key, and model."""
+    from anpegt.runner import CycleRunner
+    from anpegt.schema.config import load_config
+
+    cfg = load_config("config")
+    cfg.llm.default_provider = llm
+    if api_key:
+        cfg.llm.api_key = api_key
+    if model:
+        cfg.llm.model = model
+
+    runner = CycleRunner(cfg)
+    results = runner.run(num_cycles=cycles)
+    return [
+        {"cycle_number": r.cycle_number, "status": r.status}
+        for r in results
+    ]
+
+
 # --- Static dashboard serving (must be AFTER all /api routes) ---
 if DASHBOARD_DIST.exists():
     app.mount("/assets", StaticFiles(directory=DASHBOARD_DIST / "assets"), name="static")
