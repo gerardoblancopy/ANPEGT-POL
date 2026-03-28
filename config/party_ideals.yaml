@@ -1,0 +1,13 @@
+name: "Alianza Progresista"
+non_negotiable_principles:
+  - "Acceso universal a salud pública"
+  - "Compromiso con la acción climática"
+  - "Integridad de las instituciones democráticas"
+  - "Educación pública de calidad como derecho"
+  - "Respeto irrestricto a los derechos humanos"
+fiscal_ceiling: 500000000000  # techo presupuestario anual
+ideological_axes:
+  economic_left_right: -0.3       # -1 = izquierda, 1 = derecha
+  social_progressive_conservative: -0.5
+  environmental_priority: 0.8
+  state_intervention: 0.4

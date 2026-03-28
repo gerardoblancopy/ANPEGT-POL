@@ -1,0 +1,46 @@
+clusters:
+  - id: salud
+    name: "Salud y Protección Social"
+    description: "Salud pública, hospitales, atención primaria, salud mental, protección social"
+    keywords: ["salud", "hospital", "medicina", "atención primaria", "salud mental", "protección social", "seguro médico"]
+
+  - id: educacion
+    name: "Educación e Investigación"
+    description: "Educación básica, media, superior, formación técnica, investigación y desarrollo"
+    keywords: ["educación", "escuela", "universidad", "investigación", "formación", "becas", "ciencia"]
+
+  - id: energia
+    name: "Energía y Medio Ambiente"
+    description: "Política energética, renovables, cambio climático, conservación, recursos naturales"
+    keywords: ["energía", "clima", "renovable", "medio ambiente", "carbono", "sostenibilidad", "biodiversidad"]
+
+  - id: seguridad
+    name: "Seguridad y Justicia"
+    description: "Defensa, policía, sistema judicial, ciberseguridad, prevención del delito"
+    keywords: ["seguridad", "policía", "justicia", "defensa", "delito", "prevención", "ciberseguridad"]
+
+criteria:
+  - id: sostenibilidad
+    name: "Sostenibilidad"
+    description: "Impacto ambiental y sostenibilidad a largo plazo"
+    weight_hint: 1.0
+
+  - id: equidad
+    name: "Equidad Social"
+    description: "Reducción de desigualdades y acceso universal"
+    weight_hint: 1.2
+
+  - id: disciplina_fiscal
+    name: "Disciplina Fiscal"
+    description: "Responsabilidad presupuestaria y eficiencia del gasto"
+    weight_hint: 0.9
+
+  - id: empleo
+    name: "Generación de Empleo"
+    description: "Creación de empleo digno y formalización laboral"
+    weight_hint: 1.0
+
+  - id: institucionalidad
+    name: "Fortalecimiento Institucional"
+    description: "Transparencia, gobernanza y calidad institucional"
+    weight_hint: 0.8

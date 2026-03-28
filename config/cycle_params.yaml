@@ -1,0 +1,28 @@
+fitness_weights:
+  alpha: 0.30    # alineación semántica
+  beta: 0.20     # coherencia programática
+  gamma: 0.20    # viabilidad fiscal
+  delta: 0.15    # robustez temporal
+  epsilon: 0.15  # engagement social
+
+segment_update:
+  inertia: 0.7
+  influence_factor: 0.25
+  noise_scale: 0.05
+
+guardrails:
+  max_priority_delta: 0.15
+  max_embedding_displacement: 0.3
+  min_global_coherence: 0.4
+  rollback_on_critical: true
+
+embeddings:
+  provider: mock  # mock | huggingface | openai
+  model: "Recognai/bert-base-spanish-wwm-cased-xnli"
+  dimensionality: 768
+  pooling: mean
+
+llm:
+  default_provider: mock  # mock | openai | anthropic
+  temperature: 0.7
+  max_retries: 2

@@ -1,0 +1,82 @@
+classifier_mode: keyword  # keyword | nli | hybrid
+
+sources:
+  - id: local_docs
+    source_type: local_files
+    path_or_url: "./data/documents/"
+    enabled: true
+    metadata:
+      description: "Documentos programáticos y de contexto local"
+
+  - id: noticias_rss
+    source_type: news
+    path_or_url: ""  # RSS feeds se configuran abajo
+    enabled: true
+    metadata:
+      description: "Noticias vía RSS feeds"
+      feeds: "feeds.txt"
+
+  - id: entrevistas_candidato
+    source_type: interviews
+    path_or_url: "./data/interviews/candidate/"
+    enabled: true
+    metadata:
+      description: "Transcripciones de entrevistas del candidato"
+
+  - id: oposicion
+    source_type: opposition
+    path_or_url: "./data/interviews/opposition/"
+    enabled: true
+    metadata:
+      description: "Transcripciones de entrevistas y debates de la oposición"
+
+  - id: parlamento
+    source_type: parliament
+    path_or_url: "./data/parliament/"
+    enabled: true
+    metadata:
+      description: "Bitácoras y actas parlamentarias"
+
+  - id: rrss_candidato
+    source_type: social_media
+    path_or_url: "./data/social_media/"
+    enabled: true
+    metadata:
+      description: "Publicaciones del candidato en RRSS con métricas de engagement"
+      platforms: "twitter,instagram,facebook"
+
+  - id: audio_terreno
+    source_type: audio
+    path_or_url: "./data/audio/"
+    enabled: false  # requiere dependencia [audio]
+    metadata:
+      description: "Grabaciones de campo candidato-ciudadanía"
+      whisper_model: "base"
+
+  - id: encuestas
+    source_type: surveys
+    path_or_url: "./data/surveys/"
+    enabled: true
+    metadata:
+      description: "Resultados de encuestas públicas"
+
+  - id: focus_groups
+    source_type: focus_groups
+    path_or_url: "./data/focus_groups/"
+    enabled: true
+    metadata:
+      description: "Transcripciones de focus groups"
+
+  - id: reportes_territoriales
+    source_type: territorial
+    path_or_url: "./data/territorial/"
+    enabled: true
+    metadata:
+      description: "Reportes de equipos territoriales del partido"
+
+  - id: monitoreo_medios
+    source_type: media_monitor
+    path_or_url: "./data/media/"
+    enabled: true
+    metadata:
+      description: "Monitoreo de medios de comunicación (TV, radio, prensa)"

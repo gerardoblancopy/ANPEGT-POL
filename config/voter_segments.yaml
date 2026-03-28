@@ -1,0 +1,24 @@
+segments:
+  - id: urbano_progresista
+    name: "Urbano Progresista"
+    description: "Población urbana, joven, con educación superior, sensible al cambio climático y la equidad social"
+    size_fraction: 0.45
+    priority_issues:
+      - "cambio climático"
+      - "salud pública"
+      - "educación"
+      - "vivienda"
+      - "igualdad de género"
+    initial_embedding_seed: "Votante urbano progresista preocupado por el clima, la equidad social y el acceso a salud y educación pública de calidad"
+
+  - id: rural_conservador
+    name: "Rural Conservador"
+    description: "Población rural y suburbana, mayor, orientada a tradiciones, enfocada en economía y seguridad"
+    size_fraction: 0.55
+    priority_issues:
+      - "seguridad"
+      - "economía"
+      - "agricultura"
+      - "tradición"
+      - "empleo"
+    initial_embedding_seed: "Votante rural conservador enfocado en seguridad ciudadana, estabilidad económica, empleo digno y preservación de valores tradicionales"

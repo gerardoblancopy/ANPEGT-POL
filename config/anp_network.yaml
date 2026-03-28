@@ -1,0 +1,159 @@
+clusters:
+  - id: criteria
+    name: "Criterios Estratégicos"
+  - id: salud
+    name: "Salud"
+  - id: educacion
+    name: "Educación"
+  - id: energia
+    name: "Energía"
+  - id: seguridad
+    name: "Seguridad"
+
+nodes:
+  # Criteria nodes
+  - node_id: sostenibilidad
+    name: "Sostenibilidad"
+    cluster_id: criteria
+    node_type: criterion
+  - node_id: equidad
+    name: "Equidad Social"
+    cluster_id: criteria
+    node_type: criterion
+  - node_id: disciplina_fiscal
+    name: "Disciplina Fiscal"
+    cluster_id: criteria
+    node_type: criterion
+  - node_id: empleo
+    name: "Generación de Empleo"
+    cluster_id: criteria
+    node_type: criterion
+  - node_id: institucionalidad
+    name: "Fortalecimiento Institucional"
+    cluster_id: criteria
+    node_type: criterion
+
+  # Alternative nodes (sectors)
+  - node_id: salud_plan
+    name: "Plan de Salud"
+    cluster_id: salud
+    node_type: alternative
+  - node_id: educacion_plan
+    name: "Plan de Educación"
+    cluster_id: educacion
+    node_type: alternative
+  - node_id: energia_plan
+    name: "Plan de Energía"
+    cluster_id: energia
+    node_type: alternative
+  - node_id: seguridad_plan
+    name: "Plan de Seguridad"
+    cluster_id: seguridad
+    node_type: alternative
+
+edges:
+  # Criteria -> Alternatives (how criteria influence sectors)
+  - source_id: sostenibilidad
+    target_id: energia_plan
+    weight: 0.9
+  - source_id: sostenibilidad
+    target_id: salud_plan
+    weight: 0.3
+  - source_id: sostenibilidad
+    target_id: educacion_plan
+    weight: 0.4
+  - source_id: sostenibilidad
+    target_id: seguridad_plan
+    weight: 0.2
+
+  - source_id: equidad
+    target_id: salud_plan
+    weight: 0.9
+  - source_id: equidad
+    target_id: educacion_plan
+    weight: 0.8
+  - source_id: equidad
+    target_id: energia_plan
+    weight: 0.4
+  - source_id: equidad
+    target_id: seguridad_plan
+    weight: 0.5
+
+  - source_id: disciplina_fiscal
+    target_id: salud_plan
+    weight: 0.6
+  - source_id: disciplina_fiscal
+    target_id: educacion_plan
+    weight: 0.5
+  - source_id: disciplina_fiscal
+    target_id: energia_plan
+    weight: 0.7
+  - source_id: disciplina_fiscal
+    target_id: seguridad_plan
+    weight: 0.8
+
+  - source_id: empleo
+    target_id: energia_plan
+    weight: 0.7
+  - source_id: empleo
+    target_id: educacion_plan
+    weight: 0.6
+  - source_id: empleo
+    target_id: salud_plan
+    weight: 0.5
+  - source_id: empleo
+    target_id: seguridad_plan
+    weight: 0.3
+
+  - source_id: institucionalidad
+    target_id: seguridad_plan
+    weight: 0.8
+  - source_id: institucionalidad
+    target_id: salud_plan
+    weight: 0.4
+  - source_id: institucionalidad
+    target_id: educacion_plan
+    weight: 0.5
+  - source_id: institucionalidad
+    target_id: energia_plan
+    weight: 0.3
+
+  # Inter-sector dependencies (alternatives influence each other)
+  - source_id: energia_plan
+    target_id: salud_plan
+    weight: 0.3
+  - source_id: educacion_plan
+    target_id: salud_plan
+    weight: 0.4
+  - source_id: salud_plan
+    target_id: educacion_plan
+    weight: 0.3
+  - source_id: seguridad_plan
+    target_id: salud_plan
+    weight: 0.2
+  - source_id: energia_plan
+    target_id: educacion_plan
+    weight: 0.3
+  - source_id: educacion_plan
+    target_id: energia_plan
+    weight: 0.5
+
+  # Alternatives -> Criteria feedback (sectors influence criteria importance)
+  - source_id: salud_plan
+    target_id: equidad
+    weight: 0.7
+  - source_id: educacion_plan
+    target_id: equidad
+    weight: 0.6
+  - source_id: energia_plan
+    target_id: sostenibilidad
+    weight: 0.8
+  - source_id: seguridad_plan
+    target_id: institucionalidad
+    weight: 0.7
+  - source_id: salud_plan
+    target_id: disciplina_fiscal
+    weight: 0.5
+  - source_id: energia_plan
+    target_id: empleo
+    weight: 0.6
