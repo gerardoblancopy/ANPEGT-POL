@@ -1,0 +1,1221 @@
+{
+  "meta": {
+    "title": "Interconexión en América Latina",
+    "subtitle": "Desarrollo de un marco cooperativo para la interconexión regional — lectura asistida",
+    "author": "ISCI · R. Moreno, M. Ramírez, F. Sepúlveda, G. Blanco, F. Maldonado",
+    "language": "es",
+    "description": "Informe Final (25 de mayo de 2026). Mapa navegable del estudio sobre mecanismos de asignación de costos y beneficios para interconexiones eléctricas regionales. Cada párrafo ofrece extracto literal, síntesis y, donde aporta, lectura crítica y notas técnicas. Se entra por la estructura del informe o por sus conceptos.",
+    "source": "Informe_Final_ECFInterconexion.pdf"
+  },
+  "conceptTypes": [
+    {
+      "id": "estrategico",
+      "label": "Estratégico",
+      "glyph": "△",
+      "color": "#dc2626"
+    },
+    {
+      "id": "juegos",
+      "label": "Teoría de juegos",
+      "glyph": "✦",
+      "color": "#7c3aed"
+    },
+    {
+      "id": "economico",
+      "label": "Económico",
+      "glyph": "◆",
+      "color": "#b45309"
+    },
+    {
+      "id": "metodologico",
+      "label": "Metodológico",
+      "glyph": "⬡",
+      "color": "#2563eb"
+    },
+    {
+      "id": "regulatorio",
+      "label": "Regulatorio",
+      "glyph": "⚖",
+      "color": "#0d9488"
+    },
+    {
+      "id": "mecanismo",
+      "label": "Mecanismo / Caso",
+      "glyph": "◐",
+      "color": "#475569"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "interconexion",
+      "label": "Interconexión regional",
+      "type": "estrategico",
+      "tagline": "Infraestructura que conecta sistemas eléctricos nacionales y genera valor colectivo.",
+      "summary": "Líneas transfronterizas que permiten compartir reservas, acceder a energía más barata y limpia, y elevar la resiliencia del sistema.",
+      "definition": "Infraestructura de transmisión que conecta dos o más sistemas eléctricos nacionales. Su premisa económica es que **el valor de una red regional integrada supera la suma de los sistemas aislados**: permite compartir reserva, acceder a generación más económica, reducir la volatilidad de precios e integrar renovables a gran escala.",
+      "glosses": [
+        {
+          "label": "Glosa económica",
+          "text": "El valor no es solo técnico: surge de la complementariedad entre sistemas (hidrología, perfiles de demanda, penetración renovable). Por eso los beneficios son altamente dependientes del contexto y exigen evaluación multi-escenario."
+        },
+        {
+          "label": "Tratamiento en el informe",
+          "text": "Es el objeto central del estudio. Se evalúa con un modelo de optimización que compara un caso base (sin interconexión) con un caso interconectado, y se mide su impacto sobre el bienestar social, los generadores y la demanda de cada país."
+        }
+      ],
+      "related": [
+        "dilema-cooperacion",
+        "sew",
+        "multi-escenario"
+      ],
+      "references": [
+        {
+          "label": "Kristiansen et al. (2017)",
+          "detail": "North Sea Offshore Grid: beneficios de proyectos multinacionales de transmisión."
+        }
+      ]
+    },
+    {
+      "id": "dilema-cooperacion",
+      "label": "Dilema de cooperación",
+      "type": "estrategico",
+      "tagline": "Quién paga la infraestructura no es quien recibe los beneficios.",
+      "summary": "Distribución asimétrica de costos y beneficios entre países que desalinea incentivos y frena la inversión.",
+      "definition": "Obstáculo fundamental de la integración: la distribución **inherentemente asimétrica** de costos y beneficios. Un país puede albergar la mayor parte de la infraestructura física (con sus costos e impactos), mientras los beneficios económicos se acumulan en el país vecino. Esa divergencia entre quién paga y quién se beneficia desalinea incentivos y produce inversión subóptima.",
+      "glosses": [
+        {
+          "label": "Glosa de teoría de juegos",
+          "text": "El objetivo de un buen mecanismo no es 'dividir una factura', sino transformar un juego de suma cero en un resultado de suma positiva, garantizando un beneficio neto que justifique la participación de cada país."
+        },
+        {
+          "label": "Tratamiento en el informe",
+          "text": "Es el problema que articula todo el estudio: la barrera a la interconexión no es técnica, sino institucional y económica. La solución pasa por mecanismos de asignación percibidos como justos, transparentes y eficientes."
+        }
+      ],
+      "related": [
+        "interconexion",
+        "no-loser",
+        "shapley"
+      ]
+    },
+    {
+      "id": "shapley",
+      "label": "Valor de Shapley",
+      "type": "juegos",
+      "tagline": "Reparte el valor según la contribución marginal promedio de cada país.",
+      "summary": "Concepto de solución de la teoría de juegos cooperativos: asigna a cada país su contribución marginal promedio a la coalición.",
+      "definition": "Concepto de solución más citado de la teoría de juegos cooperativos por su fundamento axiomático de equidad: asigna a cada país un pago igual a su **contribución marginal promedio** al valor total generado por la coalición, preservando propiedades como eficiencia y simetría.",
+      "glosses": [
+        {
+          "label": "Glosa técnica",
+          "text": "ϕᵢ(v) = Σ_{S⊆N∖{i}} [|S|!(n−|S|−1)!/n!] · [v(S∪{i}) − v(S)]. Su cálculo crece exponencialmente con el número de participantes."
+        },
+        {
+          "label": "Glosa crítica",
+          "text": "Aplicación directa limitada por (i) complejidad computacional y (ii) información imperfecta (incentivos a subestimar beneficios o inflar costos). Por eso se usan mecanismos inspirados en Shapley, no el cálculo exacto."
+        }
+      ],
+      "related": [
+        "nucleo",
+        "no-loser",
+        "cbca"
+      ],
+      "references": [
+        {
+          "label": "Kristiansen et al. (2017)",
+          "detail": "Uso del Valor de Shapley en la red offshore del Mar del Norte y la subregión BBIN."
+        }
+      ]
+    },
+    {
+      "id": "nucleo",
+      "label": "Núcleo (estabilidad)",
+      "type": "juegos",
+      "tagline": "Ninguna coalición gana más separándose que permaneciendo en la gran coalición.",
+      "summary": "Una asignación está en el núcleo si ningún subconjunto de países obtiene más beneficio escindiéndose.",
+      "definition": "Criterio de estabilidad de la teoría de juegos cooperativos: una asignación está en el **núcleo** si ningún subconjunto de países obtiene más beneficio escindiéndose que permaneciendo en la gran coalición. Los mecanismos inspirados en TGC buscan no solo equidad, sino robustez frente a desviaciones estratégicas.",
+      "related": [
+        "shapley",
+        "no-loser"
+      ]
+    },
+    {
+      "id": "sew",
+      "label": "Bienestar social (SEW)",
+      "type": "economico",
+      "tagline": "El cambio agregado de bienestar que produce la interconexión.",
+      "summary": "Social Economic Welfare: suma de excedente del consumidor, del productor y rentas de congestión.",
+      "definition": "Social Economic Welfare. Marco de evaluación del beneficio de la interconexión basado en el **cambio de bienestar** entre el escenario sin la línea y con la línea. Por país, el beneficio se descompone en variación del excedente del consumidor (ΔCS), del productor (ΔPS) y de la renta de congestión asignada (ΔCR).",
+      "glosses": [
+        {
+          "label": "Glosa técnica",
+          "text": "BeneficioNetoⱼ = Σ ΔSEWⱼ,ₜ/(1+r)ᵗ − Σ ΔCostoPérdidasⱼ,ₜ/(1+r)ᵗ − (CAPEXⱼ + Σ OPEXⱼ,ₜ/(1+r)ᵗ). Es la base del CBA del modelo europeo."
+        },
+        {
+          "label": "Glosa crítica",
+          "text": "Expone la naturaleza distributiva real de la interconexión: la demanda del país importador y los generadores del país exportador son los ganadores estructurales; otros segmentos pueden perder y requerir compensación."
+        }
+      ],
+      "related": [
+        "europa",
+        "cbca",
+        "renta-congestion"
+      ],
+      "references": [
+        {
+          "label": "ENTSO-E (2015)",
+          "detail": "Guideline for Cost Benefit Analysis of Grid Development Projects."
+        }
+      ]
+    },
+    {
+      "id": "renta-congestion",
+      "label": "Renta de congestión",
+      "type": "economico",
+      "tagline": "Señal de mercado del valor de expandir la transmisión.",
+      "summary": "Renta que emerge cuando hay congestión; señala el valor de ampliar la red, pero rara vez cubre la inversión total.",
+      "definition": "Cuando hay congestión en la red, la diferencia de precios nodales genera **rentas de congestión**, interpretadas como señal del valor de expandir la transmisión. Por sí solas rara vez cubren la inversión total, por lo que se complementan con mecanismos de recuperación de costos fijos de largo plazo.",
+      "glosses": [
+        {
+          "label": "Glosa crítica",
+          "text": "Su volatilidad es un riesgo: en SIEPAC, un semestre con alta renta cubre el IAR y deja peajes nulos, pero un semestre con renta baja obliga a recaudar el faltante vía tarifas, trasladando incertidumbre a los agentes."
+        }
+      ],
+      "related": [
+        "sew",
+        "iar",
+        "siepac"
+      ]
+    },
+    {
+      "id": "iar",
+      "label": "Ingreso Anual Requerido (IAR)",
+      "type": "economico",
+      "tagline": "La cifra que el corredor debe recaudar cada año, sea cual sea el despacho.",
+      "summary": "Ingreso regulado que cubre el servicio de deuda del CAPEX y el O&M anual; base de la bancabilidad.",
+      "definition": "Ingreso que el corredor debe recaudar **cada año, independientemente del despacho**, para cubrir el servicio de la deuda del CAPEX y los costos anuales de O&M. Se calcula con el factor de recuperación de capital (CRF) sobre la vida útil a la tasa de descuento acordada: IAR = CAPEX·CRF(r,n) + ω·CAPEX.",
+      "glosses": [
+        {
+          "label": "Glosa técnica",
+          "text": "CRF(r,n)=r(1+r)ⁿ/((1+r)ⁿ−1); PVAF(r,n)=1/CRF convierte flujos anuales en valores stock. El residual ex-ante es R̂=max(0, IAR̂ − min(γ·CR̂, IAR̂))."
+        },
+        {
+          "label": "Glosa de bancabilidad",
+          "text": "Es crítico que la regla no dependa de que la renta de congestión cubra el activo: depende del ingreso regulado, que es predecible. La renta es un crédito que alivia cargos en años buenos, no una garantía estructural."
+        }
+      ],
+      "related": [
+        "renta-congestion",
+        "siepac",
+        "asia"
+      ]
+    },
+    {
+      "id": "cbca",
+      "label": "CBCA — asignación de costos transfronterizos",
+      "type": "regulatorio",
+      "tagline": "Transferir parte de los costos del país anfitrión al país que recibe los beneficios.",
+      "summary": "Mecanismo europeo que reparte la inversión según los beneficios netos proyectados, no según la geografía.",
+      "definition": "Cross-Border Cost Allocation. Mecanismo del marco europeo que aborda las **asimetrías** de costos y beneficios: si un proyecto genera beneficios para el país B pero sus costos recaen en el anfitrión A, el CBCA permite transferir parte de los costos de A a B. La asignación se basa en la proporción de beneficios netos a valor presente, no en la ubicación del activo.",
+      "glosses": [
+        {
+          "label": "Glosa institucional",
+          "text": "Una decisión CBCA positiva es requisito para solicitar financiación del Mecanismo 'Conectar Europa' (CEF). El proceso lo deciden las ARN en seis meses; si no hay acuerdo, resuelve ACER de forma vinculante."
+        },
+        {
+          "label": "Glosa para América Latina",
+          "text": "El informe recomienda repartir el residual con lógica CBCA (αᵢ = Bᵢ⁺/ΣBⱼ⁺): solo los beneficios positivos entran al denominador, de modo que la asignación dependa de beneficios medidos, no del poder de negociación."
+        }
+      ],
+      "related": [
+        "sew",
+        "europa",
+        "no-loser",
+        "shapley"
+      ],
+      "references": [
+        {
+          "label": "Reglamento (UE) 2022/869 (TEN-E)",
+          "detail": "Proyectos de Interés Común (PCI) y Asignación de Costos Transfronterizos (CBCA)."
+        }
+      ]
+    },
+    {
+      "id": "no-loser",
+      "label": "Regla de no-perdedores",
+      "type": "regulatorio",
+      "tagline": "Ningún país firmante puede quedar peor que si no hubiera firmado.",
+      "summary": "Condición de aceptabilidad: se compensa a los firmantes con saldo neto negativo, a nivel regional y doméstico.",
+      "definition": "Regla de aceptabilidad política: **ningún país que firma el acuerdo de corredor puede quedar en peor situación económica que si no hubiera firmado**. Si el reparto deja a un firmante con saldo neto negativo, el país beneficiario cubre ese déficit; el informe extiende además la protección al plano doméstico (consumidores).",
+      "glosses": [
+        {
+          "label": "Glosa de teoría de juegos",
+          "text": "La transferencia de estabilidad no es un subsidio: es una redistribución interna de rentas que asegura la Pareto-mejora para todos los firmantes, análoga al side payment que traslada el resultado al núcleo de la coalición."
+        },
+        {
+          "label": "Glosa política",
+          "text": "Muchos proyectos transfronterizos naufragaron no por oposición del gobierno central, sino por movilización de grupos domésticos perdedores. De ahí la segunda capa de protección (no-loser doméstico)."
+        }
+      ],
+      "related": [
+        "nucleo",
+        "cbca",
+        "dilema-cooperacion"
+      ]
+    },
+    {
+      "id": "tarifa-dos-partes",
+      "label": "Tarifa de dos partes",
+      "type": "regulatorio",
+      "tagline": "Un cargo fijo por capacidad y un cargo variable por energía.",
+      "summary": "Estructura que separa la recuperación de costos fijos (capacidad) de los variables (energía).",
+      "definition": "Estructura tarifaria que divide la recuperación de costos en un **cargo fijo** (capacidad, orientado a recuperar CAPEX y OPEX fijos, cobrado por capacidad reservada) y un **cargo variable** (energía, proporcional a los MWh intercambiados). Permite adaptar la recuperación a capacidades de pago y patrones de uso heterogéneos.",
+      "related": [
+        "iar",
+        "siepac",
+        "sello-postal"
+      ]
+    },
+    {
+      "id": "sello-postal",
+      "label": "Sello postal y MW-Milla",
+      "type": "regulatorio",
+      "tagline": "Socializar el costo uniformemente vs. cobrar según el uso físico.",
+      "summary": "Sello postal: cargo uniforme sin considerar distancia. MW-Milla: cargo según uso físico de la red.",
+      "definition": "El **sello postal** aplica un cargo uniforme sin considerar distancia ni trazado de flujo, privilegiando simplicidad y estabilidad pero generando señales económicas débiles. El método **MW-Milla** asigna costos según la causalidad del uso físico (|F|·L), mejorando la eficiencia a costa de mayor complejidad y posibles tensiones distributivas.",
+      "related": [
+        "tarifa-dos-partes",
+        "asia",
+        "renta-congestion"
+      ]
+    },
+    {
+      "id": "modelo-optimizacion",
+      "label": "Modelo de optimización (MILP)",
+      "type": "metodologico",
+      "tagline": "Minimiza el costo total del sistema co-optimizando inversión y despacho.",
+      "summary": "Modelo lineal entero mixto que simula expansión y despacho horario (8760 h) en el horizonte 2025–2040.",
+      "definition": "Modelo **lineal entero mixto** que minimiza el costo total del sistema (inversión anualizada + operación horaria + demanda no abastecida penalizada con VOLL) co-optimizando expansión de generación, almacenamiento, transmisión e interconexiones, y el despacho horario, sujeto a restricciones técnicas (balance, capacidad, límites de transmisión, unit commitment).",
+      "glosses": [
+        {
+          "label": "Glosa técnica",
+          "text": "Granularidad horaria (8760 h/año) y espacial de 1 a 5 nodos por país. Incluye térmicas, ERV (solar/eólica), hidro (pasada/embalse), nuclear, bioenergía y almacenamiento (BESS y bombeo), con reconversiones a gas."
+        }
+      ],
+      "related": [
+        "multi-escenario",
+        "sew"
+      ]
+    },
+    {
+      "id": "multi-escenario",
+      "label": "Evaluación multi-escenario",
+      "type": "metodologico",
+      "tagline": "Los beneficios dependen del contexto; un solo escenario engaña.",
+      "summary": "Seis escenarios 2025–2040 que combinan precios de combustibles, electrificación y costos de inversión.",
+      "definition": "Enfoque que define **seis escenarios prospectivos** (trayectorias de precios de combustibles, electrificación de la demanda, costos de inversión ERV y almacenamiento) para el horizonte 2025–2040. Responde a que los beneficios de la integración son altamente dependientes del contexto y varían según complementariedad, hidrología y demanda.",
+      "related": [
+        "modelo-optimizacion",
+        "interconexion"
+      ]
+    },
+    {
+      "id": "asia",
+      "label": "Mecanismo ASIA (ASEAN)",
+      "type": "mecanismo",
+      "tagline": "Recuperar el activo de forma simple y bancable.",
+      "summary": "Enfoque centrado en recuperar CAPEX y O&M vía Ingreso Anual Requerido, con sello postal o MW-Milla.",
+      "definition": "Marco cuyo objetivo primordial es garantizar la **recuperación financiera del activo** (CAPEX y O&M) a través de un Ingreso Anual Requerido. Usa reglas heurísticas: el sello postal socializa el costo según demanda; MW-Milla lo asigna por causalidad del uso físico. Aporta bancabilidad y simplicidad, pero carece de gobernanza regional.",
+      "glosses": [
+        {
+          "label": "Resultado ex-post",
+          "text": "Con sello postal, tarifa de 0,1238 USD/MWh: Brasil asume 93,93 MUSD frente a 1,53 de Bolivia. Con MW-Milla e 'Importador Paga', Bolivia paga 0,00 y Brasil asume 95,46 MUSD."
+        }
+      ],
+      "related": [
+        "iar",
+        "sello-postal",
+        "europa",
+        "siepac"
+      ],
+      "references": [
+        {
+          "label": "ASEAN Power Grid (APG)",
+          "detail": "Contratos bilaterales (PPA take-or-pay) y peajes por uso."
+        }
+      ]
+    },
+    {
+      "id": "europa",
+      "label": "Modelo europeo (ENTSO-E)",
+      "type": "mecanismo",
+      "tagline": "Máxima disciplina distributiva basada en bienestar social.",
+      "summary": "Marco supranacional (TEN-E/PCI/CBCA/ACER) que asigna costos según beneficios netos a valor presente.",
+      "definition": "El enfoque más estructurado e institucionalizado del mundo. Marco supranacional (Reglamento TEN-E, Proyectos de Interés Común) con metodología CBA centrada en el bienestar socioeconómico y asignación CBCA según beneficios netos. Aporta disciplina distributiva, pero exige datos armonizados e institucionalidad robusta.",
+      "glosses": [
+        {
+          "label": "Glosa crítica",
+          "text": "Mide con precisión las transferencias de bienestar y compensa entre operadores (mecanismo ITC), pero su riesgo regulatorio es alto sin acuerdos previos sobre cómo compensar a los subsectores perdedores."
+        }
+      ],
+      "related": [
+        "cbca",
+        "sew",
+        "asia",
+        "siepac"
+      ],
+      "references": [
+        {
+          "label": "Reglamento (UE) 2022/869 (TEN-E)",
+          "detail": "PCI y CBCA; intervención vinculante de ACER."
+        },
+        {
+          "label": "ENTSO-E (2015)",
+          "detail": "Guideline for Cost Benefit Analysis of Grid Development Projects."
+        }
+      ]
+    },
+    {
+      "id": "siepac",
+      "label": "SIEPAC",
+      "type": "mecanismo",
+      "tagline": "Híbrido centroamericano: ingreso regulado más rentas de congestión.",
+      "summary": "Tarifas de dos partes que usan la renta de congestión para reducir el IAR; saldo vía peajes de inyección y retiro.",
+      "definition": "Esquema híbrido de América Central que opera con **tarifas de dos partes**, separando la liquidación de energía de la de transmisión. Su innovación es usar la renta de congestión horaria para reducir el Ingreso Anual Requerido; el saldo residual se recauda con peajes de inyección y retiro mediante factores de partición regulatoria.",
+      "glosses": [
+        {
+          "label": "Resultado ex-post",
+          "text": "Primer semestre: alta renta (106,81 MUSD anualizada) deja peajes nulos. Segundo semestre: la renta cae a 2,65 MUSD y obliga a recaudar 45,08 MUSD vía peajes (αR=0,7, αI=0,3): inyección en Bolivia 5,10 USD/MWh, retiro en Brasil 11,90 USD/MWh."
+        }
+      ],
+      "related": [
+        "renta-congestion",
+        "tarifa-dos-partes",
+        "iar",
+        "europa"
+      ],
+      "references": [
+        {
+          "label": "SIEPAC / EOR",
+          "detail": "Mercado Eléctrico Regional de América Central."
+        }
+      ]
+    },
+    {
+      "id": "itaipu",
+      "label": "Tratado de Itaipú",
+      "type": "mecanismo",
+      "tagline": "Empresa binacional sin fines de lucro que iguala tarifa y costo de servicio.",
+      "summary": "Modelo de cobertura de costos: la tarifa anual se fija para igualar exactamente el costo del servicio.",
+      "definition": "Modelo de cobertura de costos de una empresa binacional sin fines de lucro: CostoServicio = remuneración al capital + financieros + amortización (eliminados tras pagar la deuda en 2023) + royalties + administración + explotación ± saldo previo + cesión. La tarifa anual se fija para **igualar exactamente** el costo del servicio.",
+      "related": [
+        "iar"
+      ],
+      "references": [
+        {
+          "label": "Tratado de Itaipú (1973)",
+          "detail": "Brasil–Paraguay; binacional hidroeléctrica."
+        }
+      ]
+    },
+    {
+      "id": "sinea",
+      "label": "SINEA / MAERCP",
+      "type": "mecanismo",
+      "tagline": "Despacho andino coordinado que maximiza el beneficio del intercambio.",
+      "summary": "Mercado Andino de Corto Plazo: maximiza el beneficio social de los intercambios sujeto a la capacidad del enlace.",
+      "definition": "Sistema de Interconexión Eléctrica Andina. Su Mercado Andino Eléctrico Regional de Corto Plazo (MAERCP) basa el despacho en la **maximización del beneficio social de los intercambios**, sujeto a la capacidad del enlace y a no pagar más que el costo de generación local.",
+      "related": [
+        "sew",
+        "interconexion"
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "resumen",
+      "number": "Resumen",
+      "title": "Resumen ejecutivo",
+      "sections": [
+        {
+          "id": "resumen-ejecutivo",
+          "title": "Resumen ejecutivo",
+          "synthesis": "El obstáculo a la interconexión en América Latina **no es técnico, sino institucional y económico**: falta un mecanismo de reparto de costos y beneficios percibido como justo y eficiente. El estudio compara tres enfoques (ASIA, Europa/ENTSO-E, SIEPAC) y concluye que la solución es **híbrida**, con criterios de bienestar social y reglas de 'no perdedores'.",
+          "paragraphs": [
+            {
+              "id": "p1",
+              "number": "¶1",
+              "text": "El presente estudio aborda el desafío estratégico de desarrollar interconexiones eléctricas regionales en América Latina bajo un enfoque cooperativo, reconociendo que uno de los principales obstáculos para su materialización no es de carácter técnico, sino institucional y económico. En particular, la ausencia de mecanismos de asignación de costos y beneficios que sean percibidos como justos y eficientes ha limitado históricamente la concreción de proyectos de integración energética. En este contexto, el objetivo central del informe es evaluar y proponer soluciones prácticas que permitan diseñar esquemas de reparto de beneficios, compensaciones y remuneración de infraestructura, alineando los incentivos entre países y asegurando la viabilidad de proyectos de interconexión regional.",
+              "citation": "Uno de los principales obstáculos para su materialización no es de carácter técnico, sino institucional y económico.",
+              "synthesis": "Plantea la tesis del informe: el cuello de botella de la integración eléctrica regional es la falta de un mecanismo de reparto de costos y beneficios percibido como justo y eficiente.",
+              "criticalReading": "Desplazar el problema de lo técnico a lo institucional reorienta toda la agenda: el entregable útil no es una línea, sino un contrato de reparto que los países acepten firmar.",
+              "concepts": [
+                "interconexion",
+                "dilema-cooperacion"
+              ]
+            },
+            {
+              "id": "p2",
+              "number": "¶2",
+              "text": "Para abordar este objetivo, el estudio combina una revisión de literatura teórica y regulatoria con el desarrollo de un modelo de optimización aplicado a distintos escenarios de integración. Este enfoque permite cuantificar los beneficios técnicos y económicos de la interconexión —incluyendo reducciones en costos de operación, mejoras en seguridad de suministro y mayor aprovechamiento de recursos renovables— así como analizar su distribución entre países y agentes. La evidencia muestra que los beneficios de la integración son altamente dependientes del contexto, variando según la complementariedad de recursos, los perfiles de demanda y las condiciones operativas de cada sistema, lo que refuerza la necesidad de evaluaciones multi-escenario para una correcta toma de decisiones.",
+              "synthesis": "El método combina revisión (teórica y regulatoria) con un modelo de optimización multi-escenario que cuantifica beneficios y su distribución.",
+              "concepts": [
+                "modelo-optimizacion",
+                "multi-escenario",
+                "sew"
+              ]
+            },
+            {
+              "id": "p3",
+              "number": "¶3",
+              "text": "En este marco, el estudio analiza comparativamente tres enfoques internacionales de asignación de costos y beneficios: la metodología ASIA (incluyendo variantes como Sello Postal y MW-Mile), el esquema SIEPAC en Centroamérica, y el marco europeo basado en análisis costo-beneficio y asignación cruzada de costos (CBCA). Cada uno de estos enfoques responde a distintas lógicas económicas y regulatorias, lo que permite extraer lecciones relevantes para el contexto latinoamericano.",
+              "synthesis": "Define el eje comparativo del estudio: tres marcos internacionales (ASIA, SIEPAC, Europa/CBCA), cada uno con su lógica económica y regulatoria.",
+              "concepts": [
+                "asia",
+                "siepac",
+                "europa",
+                "cbca"
+              ]
+            },
+            {
+              "id": "p4",
+              "number": "¶4",
+              "text": "Los resultados muestran que la metodología ASIA se caracteriza por su simplicidad operativa y su enfoque en la recuperación de costos, utilizando señales basadas en el uso físico de la red o esquemas de socialización. En particular, el método Sello Postal tiende a distribuir los costos de manera uniforme, lo que facilita su implementación pero puede generar señales económicas débiles y asignaciones poco eficientes. Por su parte, el enfoque MW-Mile introduce una mayor relación entre costos y uso de la infraestructura, mejorando la eficiencia, aunque a costa de mayor complejidad y potenciales tensiones distributivas.",
+              "synthesis": "ASIA prioriza recuperar costos con simplicidad: sello postal (uniforme, señal débil) o MW-Milla (por uso físico, más eficiente pero complejo).",
+              "concepts": [
+                "asia",
+                "sello-postal"
+              ]
+            },
+            {
+              "id": "p5",
+              "number": "¶5",
+              "text": "En contraste, la metodología europea (ENTSO-E) se basa en un enfoque explícito de bienestar social, donde la asignación de costos se vincula directamente con los beneficios económicos que cada país obtiene de la interconexión. A través del análisis costo-beneficio (CBA) y la asignación cruzada de costos (CBCA), este esquema permite internalizar tanto beneficios directos como indirectos (spillovers), incluyendo reducciones de costos, mejoras en seguridad de suministro e integración de energías renovables. Los resultados evidencian que este enfoque logra una asignación más eficiente desde el punto de vista económico, aunque requiere un alto nivel de sofisticación metodológica e institucional, así como mecanismos de compensación para asegurar que todos los países participantes obtengan beneficios netos positivos.",
+              "synthesis": "Europa ata la asignación de costos a los beneficios de cada país (CBA + CBCA): más eficiente, pero exige mucha sofisticación institucional y compensaciones.",
+              "concepts": [
+                "europa",
+                "sew",
+                "cbca"
+              ]
+            },
+            {
+              "id": "p6",
+              "number": "¶6",
+              "text": "Por su parte, el esquema SIEPAC representa un enfoque híbrido que combina elementos de recuperación de costos con señales económicas derivadas del mercado. En este caso, la remuneración de la infraestructura se basa en cargos por uso (peajes de inyección y retiro) y en la captura de rentas de congestión, distribuidas entre los países participantes. El análisis ex-post muestra que este esquema permite internalizar parcialmente los beneficios de la interconexión, aunque su efectividad depende de la estructura del mercado y de la magnitud de las rentas de congestión generadas.",
+              "synthesis": "SIEPAC es el punto intermedio: peajes de inyección/retiro más rentas de congestión; su efectividad depende de cuánta congestión exista.",
+              "concepts": [
+                "siepac",
+                "renta-congestion",
+                "tarifa-dos-partes"
+              ]
+            },
+            {
+              "id": "p7",
+              "number": "¶7",
+              "text": "El análisis comparativo revela que no existe una metodología única que domine en todas las dimensiones. Por el contrario, se identifican trade-offs claros entre eficiencia económica, simplicidad operativa y aceptabilidad política. Mientras que el enfoque europeo maximiza el bienestar social y permite una asignación eficiente basada en beneficios, su implementación requiere capacidades institucionales avanzadas. En contraste, los esquemas tipo ASIA ofrecen mayor simplicidad y facilidad de aplicación, pero pueden generar asignaciones menos eficientes y potencialmente inequitativas. El modelo SIEPAC, en tanto, ofrece una solución intermedia, aunque su desempeño depende críticamente de las condiciones del sistema y del diseño del mercado.",
+              "synthesis": "No hay un ganador absoluto: hay un trade-off entre eficiencia económica, simplicidad operativa y aceptabilidad política.",
+              "criticalReading": "El hallazgo desactiva la búsqueda de una 'metodología óptima' universal y obliga a diseñar para las restricciones concretas de cada región.",
+              "concepts": [
+                "asia",
+                "europa",
+                "siepac"
+              ]
+            },
+            {
+              "id": "p8",
+              "number": "¶8",
+              "text": "Finalmente, el estudio identifica que la viabilidad de las interconexiones regionales no depende únicamente de su rentabilidad económica, sino de la capacidad de diseñar marcos cooperativos que alineen incentivos, distribuyan beneficios de manera justa y generen confianza entre los actores involucrados. En este sentido, el principal hallazgo es que la interconexión eléctrica en América Latina debe ser entendida como un problema de coordinación económica e institucional, donde la correcta asignación de costos y beneficios es el elemento central para transformar oportunidades técnicas en proyectos concretos de integración regional.",
+              "citation": "La interconexión eléctrica en América Latina debe ser entendida como un problema de coordinación económica e institucional.",
+              "synthesis": "Conclusión central del resumen: la viabilidad depende de marcos cooperativos que alineen incentivos y repartan beneficios con justicia.",
+              "concepts": [
+                "dilema-cooperacion",
+                "no-loser"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-1",
+      "number": "Capítulo 1",
+      "title": "Descripción general del estudio",
+      "sections": [
+        {
+          "id": "introduccion",
+          "title": "Introducción",
+          "synthesis": "La interdependencia de los sistemas eléctricos sitúa la interconexión en el centro de la política energética, pero choca con el **dilema de cooperación**: costos y beneficios se distribuyen de forma asimétrica. El objetivo de un buen mecanismo es convertir un juego de suma cero en uno de suma positiva.",
+          "paragraphs": [
+            {
+              "id": "p9",
+              "number": "¶9",
+              "text": "La creciente interdependencia de los sistemas eléctricos nacionales ha puesto los proyectos de interconexión transfronteriza en el centro de la política energética global. Siendo impulsados por la necesidad de mejorar la seguridad del suministro, optimizar recursos energéticos y facilitar la integración a gran escala de fuentes de energía renovables, estas infraestructuras críticas generan un valor colectivo significativo: permiten que los países compartan reserva de generación, accedan a fuentes de energía más económicas, reduzcan la volatilidad de precios y aumenten la resiliencia general del sistema. Sin embargo, la materialización de estos beneficios regionales se enfrenta a un obstáculo fundamental conocido como el dilema de cooperación.",
+              "synthesis": "La interconexión genera valor colectivo (reservas compartidas, energía más barata, resiliencia), pero choca con el dilema de cooperación.",
+              "concepts": [
+                "interconexion",
+                "dilema-cooperacion"
+              ]
+            },
+            {
+              "id": "p10",
+              "number": "¶10",
+              "text": "El problema central radica en la distribución inherentemente asimétrica de los costos y beneficios. Un país puede verse obligado a albergar la mayor parte de la infraestructura física de una línea de transmisión, con sus respectivos costos de inversión e impactos ambientales y sociales, mientras que los beneficios económicos principales como la reducción de los precios de la electricidad o el acceso a energía limpia se acumulan en un país vecino. Esta divergencia entre quién paga y quién se beneficia crea un desajuste de incentivos que pueden llevar a retrasos en la inversión, negociaciones fallidas y, en última instancia, el desarrollo subóptimo de la red a nivel regional.",
+              "citation": "Esta divergencia entre quién paga y quién se beneficia crea un desajuste de incentivos.",
+              "synthesis": "Define el dilema: quien alberga la infraestructura asume costos e impactos, mientras los beneficios se acumulan en el vecino.",
+              "concepts": [
+                "dilema-cooperacion",
+                "interconexion"
+              ]
+            },
+            {
+              "id": "p11",
+              "number": "¶11",
+              "text": "La literatura académica e informes de política regulatoria coinciden en que la ausencia de mecanismos de asignación de costos y beneficios que sean percibidos como justos, transparentes y eficientes, constituye una de las barreras más significativas para la inversión en interconexiones. Por lo tanto, el objetivo primordial de estos mecanismos no es simplemente dividir una factura, sino diseñar un marco de incentivos que alinee los intereses soberanos de cada nación con el objetivo de maximizar el bienestar social y económico de la región en su conjunto. Se trata de transformar un juego de suma cero en un resultado de suma positiva para todos los participantes, garantizando que cada país obtenga un beneficio neto que justifique su participación e inversión en el proyecto cooperativo.",
+              "citation": "Transformar un juego de suma cero en un resultado de suma positiva para todos los participantes.",
+              "synthesis": "El propósito de un mecanismo no es repartir una factura, sino alinear los intereses soberanos para maximizar el bienestar regional.",
+              "concepts": [
+                "dilema-cooperacion",
+                "no-loser"
+              ]
+            },
+            {
+              "id": "p12",
+              "number": "¶12",
+              "text": "El presente informe es una extensión del trabajo desarrollado en el white paper 'Integración energética y descarbonización en América Latina: La dinámica de la integración bajo el enfoque de corrientes múltiples', donde se analizó como la interconexión regional puede acelerar la transición hacia sistemas bajos en carbono en América Latina. El trabajo actual se enfoca en el análisis comparativo de los mecanismos de asignación de costos y beneficios, examinando su fundamentación teórica, instrumentación regulatoria y aplicación práctica en tres regiones geopolíticas clave: Europa, Asia y Sudamérica.",
+              "synthesis": "Sitúa el informe como continuación de un white paper previo; ahora el foco es el análisis comparativo de mecanismos de asignación.",
+              "concepts": [
+                "europa",
+                "asia"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "objetivos",
+          "title": "Objetivos del estudio",
+          "synthesis": "El objetivo general es **proponer soluciones prácticas** de reparto de beneficios, compensaciones y remuneración de infraestructura para la interconexión regional en América Latina, con cinco objetivos específicos de cuantificación, documentación, evaluación y recomendación.",
+          "paragraphs": [
+            {
+              "id": "p13",
+              "number": "¶13",
+              "text": "Evaluar y proponer soluciones prácticas, enfocadas en gestionar esquemas de reparto de beneficios y compensaciones, junto a la identificación de mecanismos de remuneración de infraestructura para la interconexión eléctrica regional en América Latina.",
+              "synthesis": "Objetivo general del estudio.",
+              "concepts": [
+                "interconexion"
+              ]
+            },
+            {
+              "id": "p14",
+              "number": "¶14",
+              "text": "Objetivos específicos: (i) ampliar el rango de escenarios analizados, profundizando en la cuantificación de beneficios técnicos y económicos de la integración; (ii) identificar y documentar aplicaciones prácticas de esquemas de reparto y mecanismos de remuneración a nivel global; (iii) identificar esquemas propuestos en el estado del arte académico; (iv) evaluar ventajas y desventajas de las alternativas bajo distintos escenarios de integración; y (v) generar recomendaciones sobre interconexiones prioritarias y esquemas prácticos de cooperación técnica y económica.",
+              "synthesis": "Cinco objetivos específicos: cuantificar, documentar prácticas, revisar el estado del arte, evaluar alternativas y recomendar.",
+              "concepts": [
+                "multi-escenario"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-2",
+      "number": "Capítulo 2",
+      "title": "Revisión de literatura",
+      "sections": [
+        {
+          "id": "lit-tgc",
+          "title": "Teoría de juegos cooperativos",
+          "synthesis": "La teoría de juegos cooperativos da el marco axiomático del reparto: el **Valor de Shapley** (contribución marginal promedio) para la equidad y el **núcleo** para la estabilidad. Su uso directo choca con la complejidad computacional y la información imperfecta.",
+          "paragraphs": [
+            {
+              "id": "p15",
+              "number": "¶15",
+              "text": "A diferencia de la teoría de juegos no cooperativos, que se centra en las estrategias individuales de los agentes, la TGC analiza cómo coaliciones de países pueden cooperar para generar valor conjunto y cómo repartirlo. Su aplicación a las interconexiones eléctricas parte de la premisa de que el valor de una red regional integrada supera a la suma de sistemas eléctricos nacionales aislados.",
+              "synthesis": "La TGC estudia cómo las coaliciones generan y reparten valor; aquí, que la red integrada vale más que la suma de sistemas aislados.",
+              "concepts": [
+                "shapley",
+                "nucleo",
+                "interconexion"
+              ]
+            },
+            {
+              "id": "p16",
+              "number": "¶16",
+              "text": "Dentro de la TGC, el Valor de Shapley es el concepto de solución más citado por su fundamento axiomático de equidad: asigna a cada país un pago igual a su contribución marginal promedio al valor total generado por la coalición, preservando propiedades como eficiencia y simetría. Su uso teórico se ha explorado en contextos como la red offshore del Mar del Norte y la subregión BBIN en Asia.",
+              "citation": "Asigna a cada país un pago igual a su contribución marginal promedio al valor total generado por la coalición.",
+              "synthesis": "El Valor de Shapley reparte según contribución marginal promedio; es el referente de equidad axiomática.",
+              "concepts": [
+                "shapley"
+              ]
+            },
+            {
+              "id": "p17",
+              "number": "¶17",
+              "text": "Un objetivo central de cualquier mecanismo de asignación es la estabilidad. La TGC estudia este concepto mediante el núcleo: una asignación está en el núcleo si ningún subconjunto de países obtiene más beneficio escindiéndose que permaneciendo en la gran coalición. Así, los mecanismos inspirados en TGC no solo buscan equidad, sino también robustez frente a desviaciones estratégicas.",
+              "synthesis": "El núcleo formaliza la estabilidad: nadie gana separándose. Equidad y robustez son objetivos conjuntos.",
+              "concepts": [
+                "nucleo",
+                "shapley"
+              ]
+            },
+            {
+              "id": "p18",
+              "number": "¶18",
+              "text": "La implementación directa de soluciones axiomáticas enfrenta dos desafíos: (i) complejidad computacional (el cálculo del Valor de Shapley crece exponencialmente con el número de participantes); y (ii) información imperfecta (países con incentivos a subestimar beneficios o inflar costos). Por ello, en la práctica se diseñan mecanismos inspirados en TGC – p.ej, asignación basada en beneficios - que sean suficientemente buenos, transparentes y políticamente aceptables.",
+              "synthesis": "Por complejidad e información imperfecta, no se usa Shapley exacto sino mecanismos inspirados, transparentes y aceptables.",
+              "technicalNote": "El cálculo exacto del Valor de Shapley es exponencial en el número de jugadores; de ahí el recurso a aproximaciones basadas en beneficios (lógica que reaparece en la Recomendación 2 / CBCA).",
+              "concepts": [
+                "shapley",
+                "cbca"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lit-precios",
+          "title": "Estructura de precios y tarifas",
+          "synthesis": "Mientras la TGC orienta el reparto de beneficios, las **estructuras de precios** determinan cómo se recuperan los costos: tarifas de dos partes, sello postal y precios por costo marginal (con rentas de congestión como señal).",
+          "paragraphs": [
+            {
+              "id": "p19",
+              "number": "¶19",
+              "text": "Las tarifas de dos partes permiten adaptar la recuperación de costos a capacidades de pago y patrones de uso heterogéneos entre países. La tarifa se divide en dos partes: un cargo fijo (capacidad), orientado a recuperar CAPEX y OPEX fijos, que suele cobrarse según capacidad reservada o contratada, independiente del uso efectivo; y un cargo variable (energía), proporcional a los MWh efectivamente intercambiados, que cubre costos variables (pérdidas) e incluso componentes ligados a congestión.",
+              "synthesis": "La tarifa de dos partes separa un cargo fijo por capacidad (CAPEX/OPEX) de uno variable por energía.",
+              "concepts": [
+                "tarifa-dos-partes",
+                "iar"
+              ]
+            },
+            {
+              "id": "p20",
+              "number": "¶20",
+              "text": "El método sello postal aplica un cargo uniforme sin considerar distancia ni trazado de flujo. Para corregir ineficiencias, suele combinarse con índices de sensibilidad o factores de reparto de flujo, ajustando el cargo según la contribución a la congestión en partes específicas de la red.",
+              "synthesis": "El sello postal cobra uniforme; se corrige con índices de sensibilidad para acercarlo al uso real.",
+              "concepts": [
+                "sello-postal"
+              ]
+            },
+            {
+              "id": "p21",
+              "number": "¶21",
+              "text": "En mercados desarrollados, el precio de corto plazo iguala el costo marginal de la última unidad despachada. Cuando hay congestión, emergen rentas de congestión, las cuales se interpretan como señales del valor de expandir la transmisión. Sin embargo, por sí solas rara vez cubren la inversión total, por lo que se complementan con mecanismos de recuperación de costos fijos de largo plazo (p.ej., cargos por capacidad o tarifas reguladas).",
+              "synthesis": "El precio marginal de corto plazo genera rentas de congestión cuando hay cuellos de botella, señal del valor de expandir la red.",
+              "criticalReading": "La renta de congestión es señal de inversión, pero no instrumento de financiamiento suficiente: confiar en ella para cubrir el activo es frágil (idea retomada en la Recomendación 1).",
+              "concepts": [
+                "renta-congestion",
+                "iar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lit-formulas",
+          "title": "Formulaciones matemáticas clave",
+          "synthesis": "El informe formaliza cinco piezas: el **Valor de Shapley**, el **CBA europeo** (valor presente del ΔSEW menos costos), el costo de servicio de **Itaipú**, el despacho coordinado del **SINEA/MAERCP** y la estructura **take-or-pay** de los PPA asiáticos.",
+          "paragraphs": [
+            {
+              "id": "p22",
+              "number": "¶22",
+              "text": "El Análisis Costo–Beneficio (CBA) del modelo europeo permite estimar el beneficio neto asociado a un proyecto a lo largo del horizonte de evaluación: el beneficio neto es la suma descontada de las variaciones de bienestar social (ΔSEW) menos las pérdidas y los costos de inversión y operación (CAPEX y OPEX), donde SEW es el beneficio económico social, r la tasa de descuento social y T el horizonte temporal.",
+              "synthesis": "El CBA europeo: valor presente del aumento de bienestar social menos pérdidas, CAPEX y OPEX.",
+              "technicalNote": "BeneficioNetoⱼ = Σ ΔSEWⱼ,ₜ/(1+r)ᵗ − Σ ΔCostoPérdidasⱼ,ₜ/(1+r)ᵗ − (CAPEXⱼ + Σ OPEXⱼ,ₜ/(1+r)ᵗ).",
+              "concepts": [
+                "sew",
+                "europa"
+              ]
+            },
+            {
+              "id": "p23",
+              "number": "¶23",
+              "text": "De acuerdo con el tratado de Itaipú, el modelo de cobertura de costos (empresa binacional sin fines de lucro) define el costo de servicio como la suma de la remuneración al capital integrado, los financieros y la amortización de deuda (eliminados tras el pago de la deuda en 2023), royalties por uso de recursos hídricos, el resarcimiento por administración, los costos de explotación (O&M), el saldo de la cuenta de explotación del año previo y la remuneración por energía cedida. Finalmente, la tarifa anual se fija para igualar exactamente el costo del servicio.",
+              "synthesis": "Itaipú ilustra el modelo binacional sin fines de lucro: la tarifa se fija para igualar exactamente el costo del servicio.",
+              "concepts": [
+                "itaipu",
+                "iar"
+              ]
+            },
+            {
+              "id": "p24",
+              "number": "¶24",
+              "text": "El despacho en el Mercado Andino Eléctrico Regional de Corto Plazo (MAERCP) se basa en la maximización del beneficio social de los intercambios, sujeto a restricciones técnicas y de mercado, entre ellas la capacidad del enlace de transmisión y la condición de no pagar por importación más que el costo de la generación local.",
+              "synthesis": "El mercado andino (MAERCP) maximiza el beneficio social del intercambio sujeto a la capacidad del enlace.",
+              "concepts": [
+                "sinea",
+                "sew"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lit-europa",
+          "title": "Prácticas internacionales: el modelo europeo",
+          "synthesis": "La UE tiene el marco más institucionalizado: el Reglamento **TEN-E** define Proyectos de Interés Común (PCI) y el mecanismo **CBCA** traslada costos del país anfitrión al beneficiario, con decisión vinculante de **ACER** si las autoridades nacionales no acuerdan.",
+          "paragraphs": [
+            {
+              "id": "p25",
+              "number": "¶25",
+              "text": "El enfoque de la Unión Europea para las interconexiones eléctricas transfronterizas es el más estructurado e institucionalizado del mundo. Se basa en un marco regulatorio supranacional cuya metodología de análisis estandarizada y proceso de toma de decisiones coordinado, está diseñado para superar las barreras de inversión y promover un mercado energético interno plenamente integrado.",
+              "synthesis": "El marco europeo es el más estructurado del mundo: regulación supranacional con metodología estandarizada.",
+              "concepts": [
+                "europa"
+              ]
+            },
+            {
+              "id": "p26",
+              "number": "¶26",
+              "text": "La piedra angular del marco europeo es el reglamento sobre las orientaciones para las infraestructuras energéticas transeuropeas (Reglamento TEN-E). La versión más reciente, el Reglamento (UE) 2022/869, establece un proceso para identificar Proyectos de Interés Común (PCI), proyectos de infraestructura considerados esenciales para alcanzar los objetivos de política energética de la UE, la integración del mercado, la seguridad del suministro y la sostenibilidad.",
+              "synthesis": "El Reglamento TEN-E (UE 2022/869) identifica Proyectos de Interés Común (PCI) clave para la política energética europea.",
+              "concepts": [
+                "europa",
+                "cbca"
+              ]
+            },
+            {
+              "id": "p27",
+              "number": "¶27",
+              "text": "Para facilitar la implementación de estos proyectos, el reglamento introdujo el mecanismo de Asignación de Costos Transfronterizos (CBCA). El propósito fundamental del CBCA es abordar las asimetrías en la distribución de costos y beneficios que a menudo obstaculizan los proyectos transfronterizos. Si un PCI demuestra generar beneficios significativos para un país B, pero sus costos recaen principalmente en un país anfitrión A, el mecanismo CBCA permite que una parte de los costos de inversión sea transferida del país A al país B. Además, una decisión CBCA positiva es un requisito previo para que un proyecto pueda solicitar financiación del Mecanismo 'Conectar Europa' (CEF) de la UE.",
+              "citation": "El CBCA permite que una parte de los costos de inversión sea transferida del país A al país B.",
+              "synthesis": "El CBCA traslada parte de los costos del país anfitrión al país beneficiario, y es requisito para financiación europea.",
+              "concepts": [
+                "cbca",
+                "europa",
+                "dilema-cooperacion"
+              ]
+            },
+            {
+              "id": "p28",
+              "number": "¶28",
+              "text": "El proceso de decisión del CBCA se inicia a petición de los promotores del proyecto, que presentan una solicitud de inversión conjunta a las Autoridades Reguladoras Nacionales (ARN) afectadas. Una vez que la solicitud está completa y el proyecto es suficientemente maduro, las ARN tienen seis meses para llegar a una decisión coordinada sobre la asignación de costos. Si no logran un acuerdo en ese plazo, el caso se remite a la Agencia de la Unión Europea para la Cooperación de los Reguladores de la Energía (ACER), que toma una decisión final y vinculante.",
+              "synthesis": "El proceso CBCA es reglado: las ARN tienen seis meses para acordar; si no, ACER decide de forma vinculante.",
+              "criticalReading": "La existencia de un árbitro supranacional vinculante (ACER) es justo lo que América Latina no tiene: por eso el informe insiste en reglas implementables con institucionalidad bilateral.",
+              "concepts": [
+                "cbca",
+                "europa"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-3",
+      "number": "Capítulo 3",
+      "title": "Metodología",
+      "sections": [
+        {
+          "id": "metodologia",
+          "title": "Modelo de optimización",
+          "synthesis": "Un modelo **lineal entero mixto** co-optimiza inversión y despacho horario (8760 h) en 2025–2040, minimizando el costo total (inversión + operación + déficit penalizado con VOLL) sujeto a restricciones técnicas. Se comparan un **caso base** (sin interconexión) y un **caso interconectado**.",
+          "paragraphs": [
+            {
+              "id": "p29",
+              "number": "¶29",
+              "text": "Entre los parámetros de entrada del modelo se incluyen las proyecciones de costos de inversión y operación, los perfiles de la demanda junto a su proyección, la disponibilidad de recursos renovables (eólico, solar e hidráulico), así como los escenarios y las restricciones técnicas y operativas del sistema. Por otra parte, el modelo entrega como resultado el portafolio óptimo de inversiones en generación, almacenamiento, transmisión e interconexiones, así como simulaciones horarias del despacho económico, CAPEX y OPEX.",
+              "synthesis": "Entradas: costos, demanda, recursos renovables, escenarios y restricciones. Salidas: portafolio óptimo de inversión y despacho horario.",
+              "concepts": [
+                "modelo-optimizacion"
+              ]
+            },
+            {
+              "id": "p30",
+              "number": "¶30",
+              "text": "El modelo simula la operación del sistema con granularidad horaria (8760 horas por año), lo que permite capturar con precisión la variabilidad de la generación renovable, la operación de tecnologías flexibles como el gas natural y las capacidades de almacenamiento. La granularidad espacial varía entre uno y cinco nodos por país. El portafolio de tecnologías incluye unidades térmicas (carbón, diésel, gas ciclo abierto y combinado), energías renovables variables (solar fotovoltaica y eólica), energía hidráulica (pasada y embalse), nuclear, bioenergía y sistemas de almacenamiento.",
+              "synthesis": "Resolución horaria (8760 h) y de 1 a 5 nodos por país, con un portafolio tecnológico completo incluyendo almacenamiento.",
+              "technicalNote": "La granularidad horaria es lo que permite capturar la variabilidad renovable y el valor real de la flexibilidad y el almacenamiento; un modelo de bloques los subestimaría.",
+              "concepts": [
+                "modelo-optimizacion"
+              ]
+            },
+            {
+              "id": "p31",
+              "number": "¶31",
+              "text": "Se definen seis escenarios prospectivos que combinan trayectorias de precios de los combustibles, niveles de electrificación de la demanda, tendencias en los costos de inversión ERV y almacenamiento, entre otras, permitiendo caracterizar cuantitativamente la evolución tecnológica y energética del sistema en el horizonte 2025–2040.",
+              "synthesis": "Seis escenarios 2025–2040 que combinan precios de combustibles, electrificación y costos de inversión.",
+              "concepts": [
+                "multi-escenario"
+              ]
+            },
+            {
+              "id": "p32",
+              "number": "¶32",
+              "text": "El modelo es de carácter lineal entero mixto. La función objetivo busca minimizar el costo total del sistema eléctrico durante el horizonte 2025–2040, considerando el costo de inversión en nueva capacidad (capital anualizado de generación, almacenamiento y transmisión), el costo de operación horario (combustible y mantenimiento variable, incluyendo vertimientos), y los costos por demanda no abastecida, penalizados mediante el parámetro VOLL (Value of Lost Load) que representa el valor económico de la energía no suministrada.",
+              "synthesis": "Función objetivo: minimizar inversión + operación + demanda no abastecida (penalizada con VOLL).",
+              "technicalNote": "El VOLL internaliza el costo social de las interrupciones, incentivando soluciones que aseguren cobertura robusta de la demanda.",
+              "concepts": [
+                "modelo-optimizacion",
+                "iar"
+              ]
+            },
+            {
+              "id": "p33",
+              "number": "¶33",
+              "text": "Mediante el modelo se llevan a cabo ejercicios de optimización para determinar el despacho económico de los sistemas bajo estudio en dos configuraciones: un caso base, sin inversiones en interconexión, y un caso interconectado, en el cual los países invierten en interconexión y se permite el intercambio de energía. Sobre la base de estos escenarios se desarrolla un análisis comparativo que identifica los efectos económicos de la interconexión sobre cada país, distinguiendo agentes beneficiados o perjudicados, y evaluando el impacto sobre el beneficio social, el beneficio de los generadores y los costos de la demanda.",
+              "synthesis": "El experimento central: comparar caso base vs. interconectado para aislar ganadores y perdedores por país y por agente.",
+              "concepts": [
+                "modelo-optimizacion",
+                "sew",
+                "interconexion"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-6",
+      "number": "Capítulo 6",
+      "title": "Resultados",
+      "sections": [
+        {
+          "id": "resultados",
+          "title": "Beneficios de la interconexión ex-ante",
+          "synthesis": "De **15 corredores** evaluados, 9 son viables bilateralmente, 1 solo con regionalización y 5 no viables. El beneficio bruto ex-ante (Δ utilidad de generadores − Δ costo de demanda) es muy heterogéneo: destaca BO-E → BR-SE con ~1.300 MUSD/año.",
+          "paragraphs": [
+            {
+              "id": "p34",
+              "number": "¶34",
+              "text": "Esta sección presenta los resultados obtenidos en los casos de estudio, donde se evaluó el desempeño de los distintos mecanismos de asignación sobre una interconexión candidata de América Latina, identificando las principales ventajas y desventajas de cada enfoque, tanto en términos económicos como regulatorios.",
+              "synthesis": "Presenta los resultados de aplicar los mecanismos sobre interconexiones candidatas reales de la región.",
+              "concepts": [
+                "interconexion"
+              ]
+            },
+            {
+              "id": "p35",
+              "number": "¶35",
+              "text": "El mapa de beneficios brutos ex-ante (MUSD/año) por interconexión y por país refleja el cambio en bienestar económico derivado de la activación de cada línea candidata, en comparación con un escenario base sin interconexión. Estos beneficios se calculan como la diferencia entre el cambio en la utilidad de los generadores y el cambio en el costo de abastecimiento de la demanda (Beneficio bruto = Δ utilidad de generadores − Δ costo de demanda), sin considerar costos de inversión ni operación de la infraestructura. La interpretación de la viabilidad se basa en el beneficio agregado de los países firmantes: si resulta negativo, la interconexión no es viable bilateralmente; si se vuelve positivo al incorporar beneficios sobre terceros, el proyecto se clasifica como viable solo con regionalización.",
+              "synthesis": "Define el beneficio bruto ex-ante y la regla de viabilidad: bilateral si los firmantes ganan; regional si solo cierra incorporando a terceros.",
+              "technicalNote": "El beneficio bruto excluye CAPEX/OPEX de la infraestructura: capta efectos de mercado puros (precios marginales, redistribución de generación y comercio).",
+              "concepts": [
+                "sew",
+                "interconexion",
+                "no-loser"
+              ]
+            },
+            {
+              "id": "p36",
+              "number": "¶36",
+              "text": "La cartera de 15 corredores evaluados se agrupa en tres categorías: 9 corredores viables bilateralmente, que presentan cierre económico entre países firmantes sin requerir efectos sobre terceros; 1 corredor viable solo con regionalización, que requiere incorporar beneficios indirectos (spillovers) sobre terceros países para alcanzar un balance positivo; y 5 corredores no viables, que no logran cierre económico ni bilateral ni regional bajo la configuración analizada.",
+              "citation": "9 corredores viables bilateralmente, 1 viable solo con regionalización y 5 no viables.",
+              "synthesis": "Resultado de portafolio: 9 viables bilaterales, 1 solo regional, 5 no viables.",
+              "concepts": [
+                "interconexion",
+                "no-loser"
+              ]
+            },
+            {
+              "id": "p37",
+              "number": "¶37",
+              "text": "El análisis cuantitativo de los beneficios brutos revela una alta heterogeneidad entre regiones y proyectos. En Sudamérica destacan interconexiones con impactos significativamente positivos, como el corredor BO-E → BR-SE, que genera beneficios combinados del orden de 1.300 MUSD/año.",
+              "synthesis": "Los beneficios son muy heterogéneos; el corredor Bolivia–Brasil (BO-E → BR-SE) sobresale con ~1.300 MUSD/año.",
+              "concepts": [
+                "interconexion"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-7",
+      "number": "Capítulo 7",
+      "title": "Análisis comparativo de los casos",
+      "sections": [
+        {
+          "id": "comparativo",
+          "title": "ASIA, SIEPAC y ENTSO-E frente a frente",
+          "synthesis": "Las tres metodologías parten de paradigmas distintos: **ASIA** recupera el activo (IAR), **SIEPAC** usa renta de congestión más peajes, **ENTSO-E** mide el bienestar (ΔCS, ΔPS, ΔCR) y asigna por NPV. La misma línea produce repartos drásticamente distintos según la regla: la elección es una decisión de política regulatoria.",
+          "paragraphs": [
+            {
+              "id": "p38",
+              "number": "¶38",
+              "text": "El diseño de metodologías para la asignación de costos en interconexiones internacionales es uno de los desafíos más complejos en la economía de sistemas eléctricos. Las tres metodologías abordan el problema de la recuperación de costos desde paradigmas regulatorios distintos.",
+              "synthesis": "Introduce la comparación técnica de ASIA, SIEPAC y ENTSO-E sobre la misma interconexión evaluada.",
+              "concepts": [
+                "asia",
+                "siepac",
+                "europa"
+              ]
+            },
+            {
+              "id": "p39",
+              "number": "¶39",
+              "text": "La metodología ASIA (ASEAN) tiene por objetivo primordial garantizar la recuperación financiera del activo físico (CAPEX y O&M) a través de un Ingreso Anual Requerido (IAR). Utiliza reglas heurísticas para la asignación: el Sello Postal socializa el costo de manera proporcional a la demanda total de los sistemas conectados, privilegiando la simplicidad regulatoria y la estabilidad; mientras que el método MW-Milla asigna los costos basándose en la causalidad del uso físico horario de la red.",
+              "synthesis": "ASIA: recuperar el activo vía IAR, con sello postal (por demanda) o MW-Milla (por uso físico).",
+              "concepts": [
+                "asia",
+                "iar",
+                "sello-postal"
+              ]
+            },
+            {
+              "id": "p40",
+              "number": "¶40",
+              "text": "La metodología SIEPAC (América Central) opera bajo un esquema de tarifas de dos partes, separando la liquidación de energía de la liquidación de transmisión. Su innovación estructural radica en el uso de la renta de congestión horaria para reducir el Ingreso Anual Requerido (IAR). El saldo residual se recauda mediante peajes complementarios asignados mediante factores de partición regulatoria tanto a la inyección (generación) como al retiro (demanda).",
+              "synthesis": "SIEPAC: tarifas de dos partes; la renta de congestión reduce el IAR y el residual se cobra con peajes de inyección y retiro.",
+              "concepts": [
+                "siepac",
+                "tarifa-dos-partes",
+                "renta-congestion",
+                "iar"
+              ]
+            },
+            {
+              "id": "p41",
+              "number": "¶41",
+              "text": "La metodología ENTSO-E (Europa - CBA/CBCA) es un marco de evaluación económica de largo plazo centrado en el Bienestar Socioeconómico (SEW). A diferencia de los esquemas puramente tarifarios, descompone el impacto del proyecto en excedente del consumidor (ΔCS), excedente del productor (ΔPS) y rentas de congestión (ΔCR). Asigna los costos de inversión (CBCA) basándose en la proporción de los beneficios netos proyectados a valor presente (NPV) durante la vida útil del activo.",
+              "synthesis": "ENTSO-E: mide el bienestar (ΔCS, ΔPS, ΔCR) y asigna el CAPEX por proporción de beneficios netos a valor presente.",
+              "concepts": [
+                "europa",
+                "sew",
+                "cbca"
+              ]
+            },
+            {
+              "id": "p42",
+              "number": "¶42",
+              "text": "El impacto distributivo de la línea evaluada demuestra que, aunque el proyecto es globalmente beneficioso, la repartición de costos y rentas varía drásticamente según la regla adoptada. Bajo el Sello Postal de ASIA, la tarifa unitaria es de 0,1238 USD/MWh y Brasil asume la mayoría del pago (93,93 MUSD) frente a Bolivia (1,53 MUSD); la demanda de Brasil ahorra 5.261,05 MUSD y los generadores de Bolivia ganan 1.885,72 MUSD. Bajo MW-Milla con regla 'Importador Paga', Bolivia paga 0,00 MUSD y Brasil asume la totalidad (95,46 MUSD).",
+              "synthesis": "La misma línea, repartos opuestos: con sello postal Brasil paga casi todo; con 'Importador Paga' Brasil asume el 100% y Bolivia nada.",
+              "technicalNote": "ASIA sello postal: 0,1238 USD/MWh → Brasil 93,93 MUSD, Bolivia 1,53 MUSD. MW-Milla 'Importador Paga': Bolivia 0,00, Brasil 95,46 MUSD.",
+              "concepts": [
+                "asia",
+                "sello-postal"
+              ]
+            },
+            {
+              "id": "p43",
+              "number": "¶43",
+              "text": "Los resultados evidencian que la elección de la metodología de tarificación trasciende el mero cálculo contable, constituyendo una decisión de política regulatoria que determina la viabilidad sociopolítica del proyecto. El enfoque asiático garantiza la recuperación de la inversión de forma directa y predecible al socializar los costos, pero genera una asignación macroeconómica extremadamente asimétrica. El esquema SIEPAC aporta un mecanismo estabilizador al priorizar la renta de congestión, aunque su sensibilidad a la volatilidad operativa traslada incertidumbre a las tarifas. La granularidad del marco europeo (ENTSO-E) expone la verdadera naturaleza distributiva de la interconexión y ofrece la disciplina analítica necesaria, lo que sugiere que la institucionalidad ideal no es un modelo puro, sino un mecanismo híbrido.",
+              "citation": "La elección de la metodología de tarificación constituye una decisión de política regulatoria que determina la viabilidad sociopolítica del proyecto.",
+              "synthesis": "Conclusión comparativa: la regla de tarificación es una decisión política; la salida es un mecanismo híbrido que combine disciplina europea con la estabilidad de Asia y América Latina.",
+              "criticalReading": "El estudio convierte un resultado contable en un argumento institucional: si la regla determina quién gana, elegirla es gobernar, no solo calcular.",
+              "concepts": [
+                "asia",
+                "siepac",
+                "europa",
+                "no-loser"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-8",
+      "number": "Capítulo 8",
+      "title": "Recomendaciones",
+      "sections": [
+        {
+          "id": "rec-marco",
+          "title": "Marco general",
+          "synthesis": "Ningún mecanismo sirve puro para América Latina: **Europa aporta disciplina pero supone institucionalidad inexistente; SIEPAC, estabilidad sin precisión; Asia, bancabilidad sin gobernanza**. La región necesita la mejor regla posible dado lo que tiene, cumpliendo cuatro condiciones: bancabilidad ex-ante, reparto por beneficios, imposibilidad de saldo negativo e implementabilidad bilateral.",
+          "paragraphs": [
+            {
+              "id": "p44",
+              "number": "¶44",
+              "text": "Ninguno de los mecanismos de asignación referenciados anteriormente ofrece, por sí solo, una respuesta completa para América Latina. Europa aporta disciplina, pero supone una institucionalidad que no existe. SIEPAC aporta estabilidad, pero insuficiente precisión distributiva. Asia aporta bancabilidad pero no gobernanza regional. Sin embargo, al tomar lo mejor de cada uno y adaptarlo a las condiciones concretas de la región, es posible definir un conjunto de recomendaciones concretas y aplicables.",
+              "citation": "Europa aporta disciplina, pero supone una institucionalidad que no existe. SIEPAC aporta estabilidad, pero insuficiente precisión distributiva. Asia aporta bancabilidad pero no gobernanza regional.",
+              "synthesis": "Diagnóstico de partida: cada marco aporta una virtud y una carencia; la propuesta es un híbrido adaptado a la región.",
+              "concepts": [
+                "europa",
+                "siepac",
+                "asia"
+              ]
+            },
+            {
+              "id": "p45",
+              "number": "¶45",
+              "text": "Es fundamental reconocer que América Latina necesita la mejor regla posible dado lo que tiene, no la mejor regla posible en abstracto. Una propuesta que suponga institucionalidad supranacional, datos armonizados o reguladores coordinados puede ser elegante en el papel y paralizada en la práctica. La mejor regla para la región debe cumplir cuatro condiciones simultáneamente: garantizar bancabilidad ex-ante con ingresos predecibles independientes del despacho; distribuir el costo residual de manera proporcional a beneficios medidos, no a poder de negociación; hacer imposible —no solo improbable— que un país firmante quede con saldo neto negativo; y ser implementable con la institucionalidad bilateral o subregional que hoy existe.",
+              "citation": "América Latina necesita la mejor regla posible dado lo que tiene, no la mejor regla posible en abstracto.",
+              "synthesis": "Las cuatro condiciones de diseño: bancabilidad ex-ante, reparto por beneficios medidos, no-perdedores garantizado e implementabilidad con la institucionalidad existente.",
+              "criticalReading": "El criterio de implementabilidad es el verdadero filtro: descarta soluciones 'elegantes en el papel' y prioriza lo ejecutable con instituciones bilaterales.",
+              "concepts": [
+                "no-loser",
+                "cbca",
+                "iar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rec-1",
+          "title": "Recomendación 1: calcular el residual ex-ante",
+          "synthesis": "Cada corredor parte de un Ingreso Anual Requerido (IAR) que cubre el servicio de deuda del CAPEX y el O&M. El residual a recuperar es R̂ = max(0, IAR̂ − CR̂): la renta de congestión **alivia** los cargos, pero no se le exige financiar el activo.",
+          "paragraphs": [
+            {
+              "id": "p46",
+              "number": "¶46",
+              "text": "Todo corredor parte de un ingreso anual requerido estimado (IAR̂) y de una renta de congestión esperada (CR̂). El residual ex-ante que el mecanismo debe recuperar entre los participantes es R̂ = max(0, IAR̂ − CR̂).",
+              "synthesis": "Regla base: el residual a repartir es el IAR menos la renta de congestión esperada (acotado a cero).",
+              "technicalNote": "Para evitar dependencia excesiva, el crédito de congestión se limita a una fracción γ: R̂ = max(0, IAR̂ − min(γ·CR̂, IAR̂)). El IAR se calcula con CRF(r,n)=r(1+r)ⁿ/((1+r)ⁿ−1).",
+              "concepts": [
+                "iar",
+                "renta-congestion"
+              ]
+            },
+            {
+              "id": "p47",
+              "number": "¶47",
+              "text": "El IAR cubre el servicio de la deuda del CAPEX y los costos anuales de O&M. La renta de congestión esperada reduce la carga sobre los usuarios finales, pero no se le exige que financie el activo por sí sola. Este punto es crítico para la bancabilidad: la regla no depende de que la renta de congestión sea suficiente para cubrir el activo. Depende del ingreso regulado, que es predecible. La renta es un crédito que puede aliviar los cargos en años buenos, no una garantía estructural.",
+              "citation": "La renta es un crédito que puede aliviar los cargos en años buenos, no una garantía estructural.",
+              "synthesis": "La clave de la bancabilidad: financiar con ingreso regulado predecible y tratar la renta de congestión solo como alivio, no como garantía.",
+              "criticalReading": "Corrige el punto débil de SIEPAC (volatilidad semestral de la renta): al no apoyar el activo en la congestión, el corredor se vuelve financiable por un banco.",
+              "concepts": [
+                "iar",
+                "renta-congestion",
+                "siepac"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rec-2",
+          "title": "Recomendación 2: repartir el residual según CBCA",
+          "synthesis": "El residual se asigna con participaciones basadas en beneficios ex-ante: αᵢ = Bᵢ⁺/ΣBⱼ⁺. Solo los beneficios **positivos** entran al denominador, de modo que la asignación dependa de los beneficios medidos y no de la geografía ni del poder de negociación.",
+          "paragraphs": [
+            {
+              "id": "p48",
+              "number": "¶48",
+              "text": "El residual se asigna entre los países firmantes del corredor con participaciones basadas en beneficios ex-ante: αᵢ = Bᵢ⁺ / Σⱼ Bⱼ⁺, donde Bᵢ⁺ es el beneficio neto positivo del país i derivado del corredor. Solo los beneficios positivos entran en el denominador. Por lo tanto, la asignación primaria no depende de la mera ubicación geográfica del activo ni del tamaño de cada economía, sino de la participación en beneficios medida con lógica CBA/CBCA. En la calibración base se combina el share por beneficios con un share por exposición física (host), con peso β = 0,85, lo que preserva propiedades de equidad análogas al Valor de Shapley.",
+              "citation": "La asignación primaria no depende de la mera ubicación geográfica del activo ni del tamaño de cada economía, sino de la participación en beneficios.",
+              "synthesis": "El reparto CBCA: cada país paga en proporción a sus beneficios netos positivos (con un peso menor por exposición física), emulando la equidad de Shapley.",
+              "technicalNote": "Share híbrido σʰʸᵇ con β=0,85 (beneficio) y (1−β) (host); el IAR neto se divide en bloque de uso (η=0,35, vía tarifas a demanda 0,70 e inyección 0,30) y bloque de beneficiarios (1−η, según σʰʸᵇ).",
+              "concepts": [
+                "cbca",
+                "sew",
+                "shapley"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rec-3",
+          "title": "Recomendación 3: regla de no-loser regional",
+          "synthesis": "Si un firmante queda con saldo neto negativo, el país beneficiario cubre ese déficit mediante una **transferencia de estabilidad**. No es un subsidio, sino una redistribución que asegura la Pareto-mejora — el análogo al side payment que lleva el resultado al núcleo de la coalición.",
+          "paragraphs": [
+            {
+              "id": "p49",
+              "number": "¶49",
+              "text": "Si el reparto inicial deja a un país firmante con saldo neto negativo —es decir, la carga asignada supera sus beneficios del corredor—, el país beneficiario cubre ese déficit neto. Con esto, la región institucionaliza una regla básica de aceptabilidad política: ningún país que firma el acuerdo de corredor puede quedar en peor situación económica que si no hubiera firmado. Si ambos países firmantes quedan negativos, la línea no es viable bilateralmente; si cierra al incorporar terceros países con beneficio positivo, se clasifica como viable solo con regionalización.",
+              "citation": "Ningún país que firma el acuerdo de corredor puede quedar en peor situación económica que si no hubiera firmado.",
+              "synthesis": "La regla no-loser regional: se compensa al firmante con saldo negativo; si nadie puede cubrirlo, la línea solo es viable con regionalización o no es viable.",
+              "concepts": [
+                "no-loser",
+                "interconexion"
+              ]
+            },
+            {
+              "id": "p50",
+              "number": "¶50",
+              "text": "La transferencia de estabilidad no es un subsidio, es una redistribución interna de rentas que asegura la Pareto-mejora para todos los firmantes. El mecanismo es análogo al side payment de la teoría de juegos cooperativos que traslada el resultado al núcleo de la coalición.",
+              "synthesis": "Fundamento teórico: la transferencia es un side payment que lleva el reparto al núcleo, garantizando que nadie pierda.",
+              "technicalNote": "El pool de transferencia es T = min(Σdᵢ, Σeᵢ); cada donante aporta según su excedente y cada receptor recibe según su déficit, hasta lograr NPVᵢ ≥ 0 para todos.",
+              "concepts": [
+                "no-loser",
+                "nucleo"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "rec-4",
+          "title": "Recomendación 4: extender la protección al plano doméstico",
+          "synthesis": "Un corredor puede ser positivo para un país y aun así fracasar por **rechazo doméstico** si pierde un segmento relevante (p. ej., la demanda). Se añade una segunda capa: la transferencia regional cubre primero la pérdida doméstica; si queda brecha, la cubren los ganadores domésticos y, en último término, el país beneficiario externo.",
+          "paragraphs": [
+            {
+              "id": "p51",
+              "number": "¶51",
+              "text": "Un corredor puede ser netamente positivo para un país y enfrentar igualmente rechazo doméstico si los consumidores o un segmento regulado relevante resulta perdedor. La experiencia regional lo confirma: muchos proyectos de infraestructura transfronteriza naufragaron no por oposición del gobierno central, sino por movilización de grupos domésticos afectados.",
+              "citation": "Muchos proyectos de infraestructura transfronteriza naufragaron no por oposición del gobierno central, sino por movilización de grupos domésticos afectados.",
+              "synthesis": "La aceptabilidad no es solo entre países: un proyecto positivo a nivel país puede caer por la oposición de los perdedores domésticos.",
+              "criticalReading": "Lleva la lógica de 'no perdedores' un nivel más abajo: la unidad política relevante no siempre es el Estado, sino los grupos domésticos con capacidad de veto.",
+              "concepts": [
+                "no-loser",
+                "dilema-cooperacion"
+              ]
+            },
+            {
+              "id": "p52",
+              "number": "¶52",
+              "text": "Por eso se recomienda incorporar una segunda capa de protección. La regla no-loser country protege a la demanda doméstica: la transferencia regional recibida se imputa primero a cubrir la pérdida de demanda. Si queda un remanente, ese faltante lo cubren los ganadores domésticos, modelados en esta primera versión como ganancias de generación. Si aun así persiste una brecha, el país beneficiario externo cubre el remanente final. Si ninguna de estas capas cierra la brecha, el corredor falla la prueba distributiva.",
+              "synthesis": "La cascada de protección doméstica: transferencia regional → ganadores domésticos → país beneficiario externo; si no cierra, el corredor no pasa la prueba.",
+              "concepts": [
+                "no-loser",
+                "sew"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cap-9",
+      "number": "Capítulo 9",
+      "title": "Conclusiones",
+      "sections": [
+        {
+          "id": "conclusiones",
+          "title": "Conclusiones",
+          "synthesis": "Los beneficios de la interconexión son **dependientes del contexto** y exigen evaluación multi-escenario. No hay metodología única: los marcos exitosos combinan lo económico, lo regulatorio y lo institucional. El aporte central del estudio es demostrar que la viabilidad de las interconexiones es, ante todo, un **desafío de diseño institucional y económico**.",
+          "paragraphs": [
+            {
+              "id": "p53",
+              "number": "¶53",
+              "text": "La ampliación del rango de escenarios analizados permitió demostrar que los beneficios de la interconexión eléctrica regional son altamente dependientes del contexto operativo y estructural del sistema. La integración no solo genera reducciones en costos de operación, sino que también mejora la eficiencia en el uso de recursos renovables, reduce vertimientos y fortalece la seguridad de suministro. Estos beneficios varían según la complementariedad entre sistemas, la hidrología, la penetración de energías variables y las condiciones de demanda, lo que confirma la necesidad de evaluar la interconexión bajo múltiples escenarios.",
+              "synthesis": "Los beneficios son reales pero dependientes del contexto; por eso la evaluación multi-escenario es indispensable.",
+              "concepts": [
+                "multi-escenario",
+                "interconexion"
+              ]
+            },
+            {
+              "id": "p54",
+              "number": "¶54",
+              "text": "El análisis de experiencias internacionales permitió identificar que los esquemas más exitosos de asignación de costos y beneficios no responden a una única lógica, sino que combinan criterios económicos, regulatorios e institucionales. Marcos como los de Europa, Asia y Centroamérica logran viabilidad en la medida en que incorporan mecanismos transparentes de asignación, reglas claras de compensación y estructuras institucionales que sostienen los acuerdos en el tiempo. Esto demuestra que la dimensión institucional es tan relevante como la técnica.",
+              "citation": "La dimensión institucional es tan relevante como la técnica.",
+              "synthesis": "Los marcos exitosos combinan economía, regulación e institucionalidad; lo institucional pesa tanto como lo técnico.",
+              "concepts": [
+                "europa",
+                "asia",
+                "siepac"
+              ]
+            },
+            {
+              "id": "p55",
+              "number": "¶55",
+              "text": "Desde la perspectiva del estado del arte académico, se confirma que las metodologías basadas en bienestar social y teoría de juegos cooperativos constituyen herramientas robustas para diseñar esquemas de reparto eficientes y equitativos. No obstante, también se evidencia una brecha relevante entre la sofisticación teórica de estos enfoques y su aplicabilidad práctica. El desafío no radica únicamente en mejorar los modelos analíticos, sino en desarrollar aproximaciones que balanceen rigurosidad económica con simplicidad operativa.",
+              "synthesis": "Bienestar social y teoría de juegos son robustos, pero hay una brecha entre teoría y práctica: hay que equilibrar rigor y simplicidad.",
+              "criticalReading": "Es una autocrítica del campo: la elegancia axiomática (Shapley) no basta; el valor está en aproximaciones implementables, que es justo lo que proponen las recomendaciones.",
+              "concepts": [
+                "sew",
+                "shapley"
+              ]
+            },
+            {
+              "id": "p56",
+              "number": "¶56",
+              "text": "La evaluación de alternativas bajo distintos escenarios de integración permitió identificar que existe un trade-off estructural entre eficiencia económica y aceptabilidad política. Esquemas que maximizan el bienestar agregado pueden generar distribuciones de beneficios desiguales que dificultan su implementación, mientras que mecanismos más simples tienden a ser más aceptables aunque menos eficientes. El diseño de mecanismos de asignación debe integrar consideraciones de equidad, percepción de justicia y viabilidad política.",
+              "citation": "Existe un trade-off estructural entre eficiencia económica y aceptabilidad política.",
+              "synthesis": "Hay un trade-off estructural entre eficiencia y aceptabilidad; el diseño debe integrar equidad y viabilidad política.",
+              "concepts": [
+                "no-loser"
+              ]
+            },
+            {
+              "id": "p57",
+              "number": "¶57",
+              "text": "En conjunto, los resultados confirman que la interconexión eléctrica regional representa una oportunidad significativa para mejorar la eficiencia, reducir costos y acelerar la transición energética en América Latina, pero su materialización depende críticamente del diseño de mecanismos adecuados de asignación de costos y beneficios. El análisis evidencia que no existe una solución única, sino que la combinación de enfoques, adaptados al contexto regional, permite capturar mejor los beneficios de la integración. El principal aporte del estudio radica en demostrar que la viabilidad de las interconexiones no es únicamente un problema técnico, sino fundamentalmente un desafío de diseño institucional y económico.",
+              "citation": "La viabilidad de las interconexiones no es únicamente un problema técnico, sino fundamentalmente un desafío de diseño institucional y económico.",
+              "synthesis": "Cierre: la interconexión es una gran oportunidad cuya materialización depende, sobre todo, del diseño institucional y económico del reparto.",
+              "concepts": [
+                "dilema-cooperacion",
+                "interconexion",
+                "no-loser"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
