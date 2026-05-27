@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "title": "Libro de lectura asistida",
+    "subtitle": "Plantilla de ejemplo — reemplázala con tu contenido",
+    "author": "Autor del documento",
+    "language": "es",
+    "description": "Este es el contenido de muestra que trae la plantilla. La skill «libro-lectura-asistida» genera un book.json a partir de tu PDF y lo coloca aquí.",
+    "source": "ejemplo.pdf"
+  },
+  "glossary": [
+    {
+      "term": "lectura asistida",
+      "definition": "Modo de presentar un texto acompañado de apoyos —glosario, resúmenes, preguntas y notas— que facilitan su comprensión.",
+      "aliases": ["lectura guiada"]
+    },
+    {
+      "term": "glosario",
+      "definition": "Conjunto de términos difíciles del texto con una definición breve, accesible al pasar por la palabra resaltada."
+    }
+  ],
+  "chapters": [
+    {
+      "id": "intro",
+      "number": "Introducción",
+      "title": "Cómo funciona esta plantilla",
+      "summary": "La plantilla renderiza un único archivo book.json. Demuestra los apoyos de lectura asistida: índice, glosario en contexto, resúmenes, notas al margen y preguntas.",
+      "blocks": [
+        { "type": "heading", "level": 2, "text": "El contrato de datos" },
+        {
+          "type": "paragraph",
+          "number": 1,
+          "text": "Todo el contenido vive en book.json. Esta plantilla de lectura asistida no necesita backend: el texto se empaqueta en el bundle y la app funciona como sitio estático, ideal para desplegar en Vercel.",
+          "note": "Puedes editar el diseño en src/, pero normalmente solo tendrás que cambiar book.json."
+        },
+        {
+          "type": "paragraph",
+          "number": 2,
+          "text": "Cuando un término aparece en el glosario, se resalta su primera aparición en cada capítulo: pasa el cursor o pulsa sobre la palabra para ver la definición."
+        },
+        {
+          "type": "quote",
+          "text": "Un buen apoyo de lectura no interrumpe: acompaña.",
+          "cite": "Nota de diseño"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Índice navegable con búsqueda y capítulo activo.",
+            "Temas claro, sepia y oscuro; tamaño de letra ajustable.",
+            "Barra de progreso de lectura."
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "¿Qué archivo debes editar para cambiar el contenido del libro?",
+          "hint": "Está en la carpeta src/."
+        }
+      ]
+    },
+    {
+      "id": "siguiente-paso",
+      "number": "1",
+      "title": "Genera tu propio libro",
+      "summary": "Ejecuta la skill con tu PDF para reemplazar este contenido de muestra por el documento real.",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "number": 3,
+          "text": "Para crear tu libro, proporciona un PDF a la skill: extraerá el texto, lo dividirá en capítulos y redactará el glosario, los resúmenes, las notas y las preguntas en un nuevo book.json."
+        }
+      ],
+      "questions": [
+        { "q": "¿Qué documento te gustaría convertir en una experiencia de lectura asistida?" }
+      ]
+    }
+  ]
+}
