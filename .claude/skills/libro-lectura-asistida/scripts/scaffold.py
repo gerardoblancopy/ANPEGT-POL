@@ -62,9 +62,15 @@ def main() -> int:
         dst_book.write_text(
             json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        n_ch = len(data.get("chapters", []))
-        n_gl = len(data.get("glossary", []))
-        print(f"Insertado book.json: {n_ch} capítulos, {n_gl} términos de glosario.")
+        chapters = data.get("chapters", [])
+        n_ch = len(chapters)
+        n_sec = sum(len(c.get("sections", [])) for c in chapters)
+        n_par = sum(len(s.get("paragraphs", [])) for c in chapters for s in c.get("sections", []))
+        n_con = len(data.get("concepts", []))
+        print(
+            f"Insertado book.json: {n_ch} capítulos, {n_sec} secciones, "
+            f"{n_par} párrafos, {n_con} conceptos."
+        )
 
     print(f"Plantilla generada en: {out}")
     print("Siguiente: cd al directorio y `npm install && npm run build`.")

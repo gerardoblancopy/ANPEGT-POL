@@ -1,123 +1,147 @@
 # Esquema de `book.json`
 
-Este archivo es el **contrato de datos** entre tu trabajo de estructuración y la
-plantilla web. Escríbelo en UTF-8. La plantilla lo importa como
-`src/book.json` y lo renderiza tal cual.
+Contrato de datos entre tu estructuración y la plantilla web. UTF-8. La plantilla
+lo importa como `src/book.json` y lo renderiza.
 
 ## Estructura general
 
 ```jsonc
 {
-  "meta": { ... },          // metadatos del libro (obligatorio)
-  "glossary": [ ... ],      // términos definidos (opcional, recomendado)
-  "chapters": [ ... ]       // capítulos/secciones en orden (obligatorio)
+  "meta": { ... },          // metadatos (obligatorio)
+  "conceptTypes": [ ... ],  // familias de conceptos (recomendado)
+  "concepts": [ ... ],      // conceptos transversales (recomendado)
+  "chapters": [ ... ]       // capítulos → secciones → párrafos (obligatorio)
 }
 ```
 
 ## `meta`
 
-| Campo        | Tipo   | Obligatorio | Descripción                                   |
-|--------------|--------|-------------|-----------------------------------------------|
-| `title`      | string | sí          | Título del libro/documento.                   |
-| `subtitle`   | string | no          | Subtítulo.                                     |
-| `author`     | string | no          | Autor o emisor.                                |
-| `language`   | string | sí          | Código BCP-47, p. ej. `"es"`, `"en"`, `"la"`. |
-| `description`| string | no          | 1–2 frases para la portada.                    |
-| `source`     | string | no          | Nombre del PDF de origen.                      |
+| Campo        | Tipo   | Obl. | Descripción                          |
+|--------------|--------|------|--------------------------------------|
+| `title`      | string | sí   | Título del documento.                |
+| `subtitle`   | string | no   | Subtítulo (se muestra en la portada y la barra). |
+| `author`     | string | no   | Autor o emisor.                      |
+| `language`   | string | sí   | Código BCP-47: `"es"`, `"en"`, `"la"`. |
+| `description`| string | no   | 1–2 frases para la portada.          |
+| `source`     | string | no   | Nombre del archivo de origen.        |
 
-## `glossary` (array de objetos)
+## `conceptTypes` (familias de conceptos)
 
-Términos difíciles que la plantilla resalta **en el texto** y muestra en un
-popover y en un panel. Define cada concepto una sola vez.
+Definen los grupos del mapa conceptual (chips con conteo).
 
-| Campo        | Tipo      | Obligatorio | Descripción                                            |
-|--------------|-----------|-------------|--------------------------------------------------------|
-| `term`       | string    | sí          | Forma canónica del término.                            |
-| `definition` | string    | sí          | Definición breve (1–2 frases), en el idioma del texto. |
-| `aliases`    | string[]  | no          | Otras formas a resaltar (plurales, sinónimos).         |
+| Campo   | Tipo   | Obl. | Descripción                                   |
+|---------|--------|------|-----------------------------------------------|
+| `id`    | string | sí   | Identificador, referenciado por `concept.type`. |
+| `label` | string | sí   | Nombre visible (p. ej. "Bíblica", "Técnico"). |
+| `glyph` | string | no   | Símbolo corto (p. ej. `"✦"`, `"◆"`, `"⬡"`).    |
+| `color` | string | no   | Color hex para chips y acentos del tipo.       |
 
-El resaltado en el texto es **insensible a mayúsculas** y marca la **primera
-aparición por capítulo** de cada término o alias (para no saturar la lectura).
+## `concepts` (conceptos transversales)
 
-## `chapters` (array de objetos, en orden de lectura)
+Cada concepto tiene su **página de detalle** y se enlaza bidireccionalmente con
+los párrafos que lo declaran en `paragraph.concepts`.
 
-| Campo      | Tipo            | Obligatorio | Descripción                                          |
-|------------|-----------------|-------------|------------------------------------------------------|
-| `id`       | string          | sí          | Identificador único, slug. P. ej. `"cap-1"`.         |
-| `number`   | string          | no          | Etiqueta visible: `"1"`, `"I"`, `"Introducción"`.    |
-| `title`    | string          | sí          | Título del capítulo.                                 |
-| `summary`  | string          | no          | Resumen de 2–4 frases (tus palabras).                |
-| `blocks`   | Block[]         | sí          | Contenido en orden (ver abajo).                      |
-| `questions`| Question[]      | no          | Preguntas de comprensión (2–4).                      |
+| Campo        | Tipo            | Obl. | Descripción                                              |
+|--------------|-----------------|------|----------------------------------------------------------|
+| `id`         | string          | sí   | Identificador único (slug).                              |
+| `label`      | string          | sí   | Nombre del concepto.                                     |
+| `type`       | string          | sí   | Id de un `conceptType`.                                  |
+| `tagline`    | string          | no   | Caracterización breve (cursiva, bajo el título).         |
+| `summary`    | string          | no   | Resumen corto para el listado del mapa.                  |
+| `definition` | string          | no   | Definición extensa; admite `**negritas**`.               |
+| `glosses`    | Gloss[]         | no   | Glosas tipadas y/o "Tratamiento en el documento".        |
+| `related`    | string[]        | no   | Ids de conceptos relacionados.                           |
+| `references` | CrossReference[]| no   | Referencias externas.                                    |
 
-### `Block` (unión discriminada por `type`)
-
+### `Gloss`
 ```jsonc
-// Párrafo (el caso más común)
-{ "type": "paragraph", "text": "…", "number": 12, "note": "…" }
-//   number: opcional, nº de párrafo/marginal del original.
-//   note:   opcional, nota al margen anclada a este párrafo.
-
-// Encabezado interno de sección
-{ "type": "heading", "level": 2, "text": "…" }   // level 2 o 3
-
-// Cita en bloque
-{ "type": "quote", "text": "…", "cite": "…" }     // cite opcional
-
-// Lista
-{ "type": "list", "ordered": false, "items": ["…", "…"] }
+{ "label": "Glosa teológica", "text": "…", "color": "#9f1239" }
 ```
+`color` es opcional; si se omite, se asigna por orden (granate, ámbar, azul, …).
+Usa una glosa con `label` "Tratamiento en el documento" para explicar cómo se
+trata el concepto a lo largo del texto.
 
-- El **cuerpo (`text`) debe ser fiel al original**. No parafrasees; limpia solo
-  artefactos de extracción (cortes de palabra con guion, números de página
-  sueltos, encabezados/pies repetidos).
-- `note` convierte el párrafo en un punto con **nota al margen** (marcador
-  numerado en escritorio, popover en móvil). Úsalo para contexto histórico,
-  referencias cruzadas o aclaraciones; sé breve.
+## `chapters` → `sections` → `paragraphs`
 
-### `Question`
+### `Chapter`
+| Campo      | Tipo      | Obl. | Descripción                              |
+|------------|-----------|------|------------------------------------------|
+| `id`       | string    | sí   | Único (slug).                            |
+| `number`   | string    | no   | Etiqueta: `"Capítulo 3"`, `"I"`, etc.    |
+| `title`    | string    | no   | Título del capítulo.                     |
+| `sections` | Section[] | sí   | Secciones en orden.                      |
 
+### `Section`
+| Campo        | Tipo        | Obl. | Descripción                                            |
+|--------------|-------------|------|--------------------------------------------------------|
+| `id`         | string      | sí   | Único (slug); ancla de navegación.                     |
+| `title`      | string      | sí   | Título de la sección.                                  |
+| `synthesis`  | string      | no   | Síntesis de la sección; admite `**negritas**`.         |
+| `paragraphs` | Paragraph[] | sí   | Párrafos en orden.                                     |
+
+### `Paragraph`
+La unidad de lectura. El **`text` es literal** (no parafrasear). El resto es
+asistencia editorial; se muestra como bloques expandibles y en la página de
+detalle del párrafo.
+
+| Campo               | Tipo            | Obl. | Descripción                                              |
+|---------------------|-----------------|------|----------------------------------------------------------|
+| `id`                | string          | sí   | Único (slug); ancla y destino de enlaces.                |
+| `number`            | string          | no   | Etiqueta visible: `"§1"`, `"§107"`, `"Art. 4"`.          |
+| `text`              | string          | sí   | **Extracto literal**, fiel al original.                  |
+| `citation`          | string          | no   | Cita textual crítica (frase clave, literal).             |
+| `synthesis`         | string          | no   | Síntesis fiel (idealmente en todos los párrafos).        |
+| `criticalReading`   | string          | no   | Lectura crítica: tensiones, supuestos, lo que está en juego. |
+| `technicalContrast` | string          | no   | Contraste técnico: matiz o discrepancia técnica.         |
+| `technicalNote`     | string          | no   | Nota técnica: precisión o aclaración.                    |
+| `concepts`          | string[]        | no   | Ids de conceptos presentes (genera enlaces bidireccionales). |
+| `related`           | string[]        | no   | Ids de párrafos conectados.                              |
+| `references`        | CrossReference[]| no   | Referencias externas del párrafo.                        |
+
+Los campos de análisis (`synthesis`, `criticalReading`, `technicalContrast`,
+`technicalNote`) admiten `**negritas**`.
+
+### `CrossReference`
 ```jsonc
-{ "q": "¿Pregunta abierta?", "hint": "Pista opcional para guiar la reflexión." }
+{ "label": "Rerum Novarum (1891)", "detail": "León XIII, sobre la cuestión social", "url": "https://…" }
 ```
 
 ## Ejemplo mínimo válido
 
 ```json
 {
-  "meta": {
-    "title": "Título de ejemplo",
-    "subtitle": "Un subtítulo",
-    "author": "Autor",
-    "language": "es",
-    "description": "Breve descripción para la portada.",
-    "source": "documento.pdf"
-  },
-  "glossary": [
-    { "term": "tecnocracia", "definition": "Gobierno o dominio ejercido por expertos técnicos.", "aliases": ["tecnocrático"] }
+  "meta": { "title": "Documento", "language": "es" },
+  "conceptTypes": [{ "id": "dsi", "label": "DSI", "glyph": "◆", "color": "#7c3aed" }],
+  "concepts": [
+    { "id": "justicia-social", "label": "Justicia social", "type": "dsi",
+      "tagline": "Criterio que ordena instituciones y tecnologías.",
+      "definition": "Categoría central del Magisterio social; **criterio estructural**, no caridad privada.",
+      "glosses": [{ "label": "Glosa técnica", "text": "Invierte el criterio: mide el impacto sobre los más vulnerables." }],
+      "related": [], "references": [{ "label": "Sollicitudo Rei Socialis (1987)" }] }
   ],
   "chapters": [
-    {
-      "id": "intro",
-      "number": "Introducción",
-      "title": "El umbral",
-      "summary": "Plantea la pregunta central del documento y su contexto.",
-      "blocks": [
-        { "type": "heading", "level": 2, "text": "Un tiempo nuevo" },
-        { "type": "paragraph", "number": 1, "text": "Texto fiel del primer párrafo…", "note": "Escrito en el 135.º aniversario de Rerum Novarum." },
-        { "type": "paragraph", "number": 2, "text": "Segundo párrafo, donde aparece la tecnocracia como concepto clave…" },
-        { "type": "quote", "text": "Una cita memorable del documento.", "cite": "§3" }
-      ],
-      "questions": [
-        { "q": "¿Cuál es la tensión que el autor plantea desde el inicio?", "hint": "Fíjate en el primer y el último párrafo." }
-      ]
-    }
+    { "id": "cap-1", "number": "Capítulo 1", "title": "Gobernanza",
+      "sections": [
+        { "id": "s1", "title": "Alineación y deliberación",
+          "synthesis": "No solo **cómo** alinear, sino **quién** decide los valores.",
+          "paragraphs": [
+            { "id": "p107", "number": "§107",
+              "text": "No serviría de nada una IA más moral, si esta moral es decidida por unos pocos…",
+              "citation": "No serviría de nada una IA más moral, si esta moral es decidida por unos pocos.",
+              "synthesis": "Cuestiona la 'alineación' sin deliberar **quién** fija los valores.",
+              "criticalReading": "Pasaje de gobernanza: alineación sin deliberación concentra poder.",
+              "concepts": ["justicia-social"],
+              "related": [],
+              "references": [{ "label": "Gaudium et Spes, 36" }] }
+          ] }
+      ] }
   ]
 }
 ```
 
 ## Validación rápida
 - JSON válido (UTF-8, sin comas finales).
-- Cada `chapter.id` único.
-- Todo `block` tiene un `type` reconocido.
-- Si dudas, valida con: `python3 -c "import json,sys;json.load(open(sys.argv[1]))" book.json`
+- `chapter.id`, `section.id`, `paragraph.id`, `concept.id` únicos.
+- Todo `concept.type` apunta a un `conceptType.id`; todo id en `concepts`/`related`
+  existe.
+- Valida con: `python3 -c "import json,sys;json.load(open(sys.argv[1]))" book.json`

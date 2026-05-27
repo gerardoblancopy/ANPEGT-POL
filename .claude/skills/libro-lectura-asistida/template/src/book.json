@@ -1,78 +1,166 @@
 {
   "meta": {
-    "title": "Libro de lectura asistida",
-    "subtitle": "Plantilla de ejemplo — reemplázala con tu contenido",
+    "title": "Documento de ejemplo",
+    "subtitle": "Lectura asistida — reemplaza este contenido con tu documento",
     "author": "Autor del documento",
     "language": "es",
-    "description": "Este es el contenido de muestra que trae la plantilla. La skill «libro-lectura-asistida» genera un book.json a partir de tu PDF y lo coloca aquí.",
+    "description": "Mapa navegable para leer el documento con asistencia editorial. Cada párrafo ofrece síntesis fiel, extracto literal y, donde aporta, lectura crítica, contraste técnico y nota técnica. Se entra por la estructura (capítulos y secciones) o por los conceptos.",
     "source": "ejemplo.pdf"
   },
-  "glossary": [
+  "conceptTypes": [
+    { "id": "biblica", "label": "Bíblica", "glyph": "✦", "color": "#0d9488" },
+    { "id": "dsi", "label": "DSI", "glyph": "◆", "color": "#7c3aed" },
+    { "id": "teologico", "label": "Teológico", "glyph": "✝", "color": "#b45309" },
+    { "id": "tecnico", "label": "Técnico", "glyph": "⬡", "color": "#2563eb" },
+    { "id": "filosofico", "label": "Filosófico", "glyph": "◐", "color": "#475569" },
+    { "id": "ideologica", "label": "Ideológica", "glyph": "△", "color": "#dc2626" }
+  ],
+  "concepts": [
+    { "id": "babel", "label": "Babel", "type": "biblica", "summary": "Símbolo del proyecto humano de autosuficiencia, sostenido por una uniformidad que elimina la diversidad." },
+    { "id": "jerusalen", "label": "Jerusalén", "type": "biblica", "summary": "Imagen de la ciudad reconstruida donde la diversidad convive; contramodelo de Babel." },
+    { "id": "rerum-novarum", "label": "Rerum Novarum", "type": "dsi", "summary": "Encíclica de León XIII (1891) que inaugura la Doctrina Social de la Iglesia." },
+    { "id": "res-novae", "label": "Res novae", "type": "dsi", "summary": "Las 'cosas nuevas' de cada época; hoy, la digitalización, la IA y la robótica." },
+    { "id": "tecnocracia", "label": "Tecnocracia", "type": "filosofico", "summary": "Dominio ejercido a través del poder técnico, hoy de carácter predominantemente privado." },
+    { "id": "bien-comun", "label": "Bien común", "type": "dsi", "summary": "Conjunto de condiciones que permiten a las personas y comunidades su pleno desarrollo." },
     {
-      "term": "lectura asistida",
-      "definition": "Modo de presentar un texto acompañado de apoyos —glosario, resúmenes, preguntas y notas— que facilitan su comprensión.",
-      "aliases": ["lectura guiada"]
+      "id": "alineacion",
+      "label": "Alineación de la IA",
+      "type": "tecnico",
+      "tagline": "Ajustar la IA a valores humanos — pero ¿a los valores de quién?",
+      "summary": "Conjunto de técnicas para que un sistema de IA persiga los valores y objetivos previstos por sus diseñadores.",
+      "definition": "En la literatura técnica, **'alignment'** designa los métodos para que un sistema de IA persiga los objetivos y valores previstos por quienes lo diseñan. El documento no niega su utilidad, pero la considera **insuficiente** si la elección de esos valores no se delibera colectivamente.",
+      "glosses": [
+        { "label": "Glosa técnica", "text": "Suele plantearse como un problema de optimización: ajustar un modelo a una función de valores dada (RLHF, constituciones, preferencias). La pregunta que queda abierta no es solo el 'cómo', sino el **quién** fija la función objetivo." },
+        { "label": "Glosa crítica", "text": "Sin deliberación pública, la alineación se vuelve infraestructura invisible de poder: quien controla el sistema impone su visión moral como norma de hecho." }
+      ],
+      "related": ["justicia-social", "tecnocracia", "bien-comun"],
+      "references": [
+        { "label": "Gaudium et Spes, 36", "detail": "Autonomía de las realidades terrenas y su recto uso." }
+      ]
     },
     {
-      "term": "glosario",
-      "definition": "Conjunto de términos difíciles del texto con una definición breve, accesible al pasar por la palabra resaltada."
+      "id": "justicia-social",
+      "label": "Justicia social",
+      "type": "dsi",
+      "tagline": "Criterio que ordena instituciones, políticas y tecnologías hacia los últimos.",
+      "summary": "Criterio de equidad que debe ordenar las instituciones y las decisiones colectivas.",
+      "definition": "Categoría central del Magisterio social moderno. No es una preferencia caritativa privada: es un **criterio estructural** para evaluar políticas, instituciones y tecnologías a partir de su impacto sobre los más vulnerables.",
+      "glosses": [
+        { "label": "Glosa teológica", "text": "Tiene raíz en la tradición profética y en el anuncio de 'buena noticia a los pobres'. La justicia no es un añadido moral: es la medida concreta con que se juzga la rectitud de una sociedad." },
+        { "label": "Glosa técnica", "text": "Para una audiencia técnica: invierte el criterio dominante de evaluación. En lugar de medir el bienestar del usuario típico o el agregado social, mide el impacto sobre los más vulnerables —excluidos del acceso, víctimas de discriminación algorítmica, trabajadores invisibles de las cadenas digitales. Es el test inverso al utilitarismo agregativo." },
+        { "label": "Tratamiento en el documento", "text": "Funciona como criterio explícito al discutir la gobernanza de la IA (§107): la 'alineación' sin justicia social compartida concentra el poder normativo. Organiza buena parte de la lectura crítica de la técnica." }
+      ],
+      "related": ["bien-comun", "rerum-novarum", "tecnocracia"],
+      "references": [
+        { "label": "Juan Pablo II — Sollicitudo Rei Socialis (1987)", "detail": "Formulación magisterial explícita de la justicia como principio." },
+        { "label": "Gaudium et Spes, 29", "detail": "Igualdad fundamental de las personas y justicia social." }
+      ]
     }
   ],
   "chapters": [
     {
-      "id": "intro",
+      "id": "cap-introduccion",
       "number": "Introducción",
-      "title": "Cómo funciona esta plantilla",
-      "summary": "La plantilla renderiza un único archivo book.json. Demuestra los apoyos de lectura asistida: índice, glosario en contexto, resúmenes, notas al margen y preguntas.",
-      "blocks": [
-        { "type": "heading", "level": 2, "text": "El contrato de datos" },
+      "title": "El umbral",
+      "sections": [
         {
-          "type": "paragraph",
-          "number": 1,
-          "text": "Todo el contenido vive en book.json. Esta plantilla de lectura asistida no necesita backend: el texto se empaqueta en el bundle y la app funciona como sitio estático, ideal para desplegar en Vercel.",
-          "note": "Puedes editar el diseño en src/, pero normalmente solo tendrás que cambiar book.json."
-        },
-        {
-          "type": "paragraph",
-          "number": 2,
-          "text": "Cuando un término aparece en el glosario, se resalta su primera aparición en cada capítulo: pasa el cursor o pulsa sobre la palabra para ver la definición."
-        },
-        {
-          "type": "quote",
-          "text": "Un buen apoyo de lectura no interrumpe: acompaña.",
-          "cite": "Nota de diseño"
-        },
-        {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Índice navegable con búsqueda y capítulo activo.",
-            "Temas claro, sepia y oscuro; tamaño de letra ajustable.",
-            "Barra de progreso de lectura."
+          "id": "apertura",
+          "title": "Apertura",
+          "synthesis": "Apertura del documento. La elección entre **levantar Babel o reconstruir Jerusalén** organiza toda la reflexión. Inscripción explícita en la tradición iniciada por Rerum Novarum (1891): la DSI como 'patrimonio de sabiduría' vivo, no estático.",
+          "paragraphs": [
+            {
+              "id": "p1",
+              "number": "§1",
+              "text": "Levantar una nueva torre de Babel o edificar la ciudad donde Dios y la humanidad habiten juntos.",
+              "criticalReading": "La disyuntiva inicial fija el marco hermenéutico: no es la técnica en sí lo que se juzga, sino el proyecto humano que la orienta.",
+              "concepts": ["babel", "jerusalen"]
+            },
+            {
+              "id": "p2",
+              "number": "§2",
+              "text": "Deseamos entrar en diálogo con todos los hombres y mujeres de nuestro tiempo.",
+              "synthesis": "Declaración de intención dialógica: el texto se dirige a toda la comunidad humana, no solo a los creyentes."
+            },
+            {
+              "id": "p3",
+              "number": "§3",
+              "text": "En 1891 León XIII publicó la Encíclica Rerum novarum, cuyo 135° aniversario celebramos este año.",
+              "criticalReading": "El anclaje en Rerum Novarum no es decorativo: reclama para la IA el mismo tratamiento que la 'cuestión social' tuvo en su momento.",
+              "concepts": ["rerum-novarum"]
+            }
           ]
-        }
-      ],
-      "questions": [
+        },
         {
-          "q": "¿Qué archivo debes editar para cambiar el contenido del libro?",
-          "hint": "Está en la carpeta src/."
+          "id": "res-novae",
+          "title": "Las 'res novae' de nuestro tiempo",
+          "synthesis": "Las **'res novae'** contemporáneas son la digitalización, la IA y la robótica. Diagnóstico clave: el poder tecnológico hoy es 'predominantemente privado' —actores transnacionales con recursos superiores a muchos gobiernos—, lo que vuelve más difícil discernir, gobernar y orientarlo al bien común.",
+          "paragraphs": [
+            {
+              "id": "p4",
+              "number": "§4",
+              "text": "La técnica no debe considerarse, en sí misma, como una fuerza antagónica respecto a la persona.",
+              "technicalContrast": "Frente a lecturas tecnófobas, el texto asume una posición instrumentalista matizada: la técnica es ambivalente y su signo depende del orden social que la gobierna.",
+              "concepts": ["tecnocracia"]
+            },
+            {
+              "id": "p5",
+              "number": "§5",
+              "text": "El poder tecnológico adquiere así un rostro inédito, predominantemente 'privado', y por ello aún más difícil de discernir, gobernar y orientar hacia el bien común.",
+              "criticalReading": "El adjetivo 'privado' es el núcleo del diagnóstico: desplaza el problema de la técnica al de la concentración de poder normativo fuera del control público.",
+              "concepts": ["tecnocracia", "bien-comun"]
+            },
+            {
+              "id": "p6",
+              "number": "§6",
+              "text": "¿Hacia dónde vamos? ¿Hacia qué meta deseamos orientarnos? ¿Qué dirección elegir como comunidad humana y como pueblos?",
+              "synthesis": "Cierre interrogativo de la sección: la pregunta por la finalidad precede a cualquier juicio sobre los medios técnicos."
+            }
+          ]
+        },
+        {
+          "id": "dos-imagenes",
+          "title": "Dos imágenes bíblicas",
+          "synthesis": "**Babel y Nehemías** como contramodelos hermenéuticos: Babel es la obra concebida sin Dios, sostenida por la uniformidad que elimina la diversidad; Nehemías reconstruye con responsabilidad compartida, custodiando a cada uno.",
+          "paragraphs": [
+            {
+              "id": "p7",
+              "number": "§7",
+              "text": "La torre de Babel y la reconstrucción de los muros por Nehemías ofrecen dos modos opuestos de habitar la obra común.",
+              "synthesis": "Se contraponen dos arquetipos: la construcción uniformizante (Babel) y la reconstrucción participativa (Nehemías).",
+              "concepts": ["babel", "jerusalen"]
+            }
+          ]
         }
       ]
     },
     {
-      "id": "siguiente-paso",
-      "number": "1",
-      "title": "Genera tu propio libro",
-      "summary": "Ejecuta la skill con tu PDF para reemplazar este contenido de muestra por el documento real.",
-      "blocks": [
+      "id": "cap-3",
+      "number": "Capítulo 3",
+      "title": "Responsabilidad, transparencia y gobernanza de la IA",
+      "sections": [
         {
-          "type": "paragraph",
-          "number": 3,
-          "text": "Para crear tu libro, proporciona un PDF a la skill: extraerá el texto, lo dividirá en capítulos y redactará el glosario, los resúmenes, las notas y las preguntas en un nuevo book.json."
+          "id": "gobernanza-alineacion",
+          "title": "Alineación y deliberación",
+          "synthesis": "El problema no es solo **cómo** alinear la IA con valores humanos, sino **quién** decide esos valores. Sin deliberación, la 'alineación' se vuelve infraestructura invisible de poder.",
+          "paragraphs": [
+            {
+              "id": "p107",
+              "number": "§107",
+              "text": "No podemos limitarnos a invocar la moralización de la máquina, la denominada 'alineación' de la IA con los valores humanos, sin tener la valentía de poner una condición ulterior: la posibilidad de discutir el código ético que debe ser usado, sometiéndolo a criterios de justicia social compartida. De lo contrario, quien controla la IA impondrá su propia visión moral, que se convertirá en la infraestructura invisible de los sistemas. No serviría de nada una IA más moral, si esta moral es decidida por unos pocos. Se necesita una política más presente, capaz de ralentizar donde todo acelera y de proteger los espacios en los que las comunidades pueden seguir participando e interrogándose.",
+              "citation": "No serviría de nada una IA más moral, si esta moral es decidida por unos pocos.",
+              "synthesis": "El documento cuestiona el concepto técnico de 'alineación' cuando se reduce a moralizar la máquina sin discutir **quién** decide los valores con los que se alinea. Si el código ético se impone desde quien controla los sistemas, la 'alineación' se vuelve infraestructura invisible de poder. Pide someter ese código a criterios de justicia social compartida y reclama una política capaz de ralentizar y proteger los espacios deliberativos.",
+              "criticalReading": "Uno de los pasajes más afilados del documento. La objeción no se queda en el plano técnico ni en el moral genérico: identifica con precisión un problema de gobernanza —la alineación sin deliberación concentra el poder normativo en quien controla la infraestructura.",
+              "technicalContrast": "En la literatura técnica, 'alignment' suele plantearse como un problema de optimización: ajustar un modelo a una función de valores dada. El texto desplaza la pregunta del 'cómo alinear' al 'quién fija los valores', que la formulación técnica habitual deja fuera de su alcance.",
+              "technicalNote": "‘Alineación’ (AI alignment) designa el conjunto de técnicas para que un sistema persiga los objetivos previstos por sus diseñadores. El texto no niega su utilidad; señala su insuficiencia si la elección de valores no es deliberada colectivamente.",
+              "concepts": ["alineacion", "justicia-social", "bien-comun"],
+              "related": ["p5"],
+              "references": [
+                { "label": "Rerum Novarum (1891)", "detail": "León XIII, sobre la cuestión social" },
+                { "label": "Gaudium et Spes, 36", "detail": "autonomía de las realidades terrenas" }
+              ]
+            }
+          ]
         }
-      ],
-      "questions": [
-        { "q": "¿Qué documento te gustaría convertir en una experiencia de lectura asistida?" }
       ]
     }
   ]
